@@ -22,9 +22,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "@revealjs/react": "^0.2.1",
-    "reveal.js": "^6.0.1"
-  }
+  ]
 }

@@ -1,18 +1,15 @@
-import { Deck, Slide } from "@revealjs/react"
+//* Libraries imports
+import { Deck } from "@revealjs/react"
 import "reveal.js/reveal.css"
-import "reveal.js/theme/black.css"
+import "reveal.js/theme/moon.css"
+
+//* Components imports
+import { Part1 } from "@/slides/part-1"
 
 export function Presentation() {
   return (
     <Deck>
-      <Slide>
-        <h1>Hello</h1>
-        <p>My first Reveal deck in React.</p>
-      </Slide>
-
-      <Slide background="#111827">
-        <h2>Second slide</h2>
-      </Slide>
+      <Part1 />
     </Deck>
   )
 }
