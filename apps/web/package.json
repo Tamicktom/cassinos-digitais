@@ -12,6 +12,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
     "@phosphor-icons/react": "^2.1.10",
     "@revealjs/react": "^0.2.1",
     "@tailwindcss/vite": "^4.1.18",
@@ -26,10 +28,12 @@
     "react-dom": "^19.2.4",
     "reveal.js": "^6.0.1",
     "tailwindcss": "^4.1.18",
+    "three": "^0.184.0",
     "vite-tsconfig-paths": "^5.1.4",
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@types/three": "^0.184.1",
     "@tanstack/eslint-config": "^0.3.0",
     "@types/node": "^25.1.0",
     "@types/react": "^19.2.10",

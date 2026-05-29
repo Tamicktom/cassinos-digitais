@@ -12,15 +12,15 @@ export function Presentation() {
     <Deck
       config={{
         transition: "slide",
-        parallaxBackgroundImage: "/assets/background.png",
-        parallaxBackgroundSize: "auto 25%",
-        parallaxBackgroundRepeat: "repeat",
-        parallaxBackgroundPosition: "center",
+        // parallaxBackgroundImage: "/assets/background.png",
+        // parallaxBackgroundSize: "auto 25%",
+        // parallaxBackgroundRepeat: "repeat",
+        // parallaxBackgroundPosition: "center",
       }}
       //  className="bg-back"
-      style={{
-        backgroundColor: "var(--background)",
-      }}
+      // style={{
+      //   backgroundColor: "var(--background)",
+      // }}
     >
       <Part1 />
       <Part2 />
