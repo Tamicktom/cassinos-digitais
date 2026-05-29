@@ -39,8 +39,8 @@ export function ChipRainScene() {
 
   return (
     <>
-      <ambientLight intensity={1.2} />
-      <directionalLight position={[4, 8, 6]} intensity={0.8} />
+      <ambientLight intensity={0.2} />
+      <directionalLight position={[4, 8, 6]} intensity={0.6} />
       {chips.map((chip) => (
         <FallingChip
           key={chip.id}
