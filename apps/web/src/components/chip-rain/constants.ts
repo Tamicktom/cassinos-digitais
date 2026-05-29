@@ -1,8 +1,13 @@
 export const CHIP_MODELS = [
-  "/assets/red_chips.glb",
-  "/assets/blue_chips.glb",
-  "/assets/green_chips.glb",
-  "/assets/black_chips.glb",
+  // "/assets/red_chips.glb",
+  // "/assets/blue_chips.glb",
+  // "/assets/green_chips.glb",
+  // "/assets/black_chips.glb",
+  "/assets/yellow_chips.glb",
+  "/assets/darker_blue_chips.glb",
+  "/assets/orange_chips.glb",
+  "/assets/rose_chips.glb",
+  "/assets/baby_blue_chips.glb",
 ] as const
 
 export type ChipModelPath = (typeof CHIP_MODELS)[number]
