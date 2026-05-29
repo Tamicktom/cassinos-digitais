@@ -1,6 +1,6 @@
 //* Libraries imports
-import { useQuery } from "@tanstack/react-query";
-import z from "zod";
+import { useQuery } from "@tanstack/react-query"
+import z from "zod"
 
 const githubApiResponseSchema = z.object({
   login: z.string(),
@@ -35,61 +35,61 @@ const githubApiResponseSchema = z.object({
   followers: z.number(),
   following: z.number(),
   created_at: z.string(),
-  updated_at: z.string()
-});
+  updated_at: z.string(),
+})
 
-type GithubProfile = z.infer<typeof githubApiResponseSchema>;
+type GithubProfile = z.infer<typeof githubApiResponseSchema>
 
 function getGithubProfileStorageKey(username: string) {
-  return `github-profile:${username}`;
+  return `github-profile:${username}`
 }
 
 function readGithubProfileFromStorage(username: string): GithubProfile | null {
   if (typeof window === "undefined") {
-    return null;
+    return null
   }
 
-  const stored = localStorage.getItem(getGithubProfileStorageKey(username));
+  const stored = localStorage.getItem(getGithubProfileStorageKey(username))
   if (!stored) {
-    return null;
+    return null
   }
 
   try {
-    return githubApiResponseSchema.parse(JSON.parse(stored));
+    return githubApiResponseSchema.parse(JSON.parse(stored))
   } catch {
-    localStorage.removeItem(getGithubProfileStorageKey(username));
-    return null;
+    localStorage.removeItem(getGithubProfileStorageKey(username))
+    return null
   }
 }
 
 function saveGithubProfileToStorage(username: string, profile: GithubProfile) {
   if (typeof window === "undefined") {
-    return;
+    return
   }
 
   localStorage.setItem(
     getGithubProfileStorageKey(username),
-    JSON.stringify(profile),
-  );
+    JSON.stringify(profile)
+  )
 }
 
 async function getGithubProfile(username: string) {
-  const cached = readGithubProfileFromStorage(username);
+  const cached = readGithubProfileFromStorage(username)
   if (cached) {
-    return cached;
+    return cached
   }
 
-  const response = await fetch(`https://api.github.com/users/${username}`);
-  const data = await response.json();
-  const profile = githubApiResponseSchema.parse(data);
-  saveGithubProfileToStorage(username, profile);
-  return profile;
+  const response = await fetch(`https://api.github.com/users/${username}`)
+  const data = await response.json()
+  const profile = githubApiResponseSchema.parse(data)
+  saveGithubProfileToStorage(username, profile)
+  return profile
 }
 
 export function useGithubProfile(username: string) {
   return useQuery({
-    queryKey: ['github-profile', username],
+    queryKey: ["github-profile", username],
     queryFn: () => getGithubProfile(username),
     staleTime: 1000 * 60 * 60 * 24, // 24 hours
-  });
+  })
 }

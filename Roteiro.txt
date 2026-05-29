@@ -1,0 +1,7 @@
+Sobre mim:
+
+Olá pessoal, meu nome é Henrique Ângelo.
+
+Sobre a apresentação:
+
+Boa noite pessoal, hoje estou aqui para falar sobre arquitetura de software.

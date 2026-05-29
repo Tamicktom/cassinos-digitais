@@ -1,12 +1,12 @@
 //* Libraries imports
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
-import { QueryClientProvider } from "@tanstack/react-query";
+import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
+import { QueryClientProvider } from "@tanstack/react-query"
 
 //* Styles imports
-import appCss from "@workspace/ui/globals.css?url";
+import appCss from "@workspace/ui/globals.css?url"
 
 //* Utils imports
-import { queryClient } from "@/utils/query";
+import { queryClient } from "@/utils/query"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -19,7 +19,7 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "Cassinos Digitais",
       },
     ],
     links: [
