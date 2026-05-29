@@ -18,9 +18,21 @@ function App() {
   )
 }
 
+const ANIMATED_BACKGROUND_IMAGE = "/assets/animated.svg";
+
 function AnimatedBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 size-full">
+    <div className="pointer-events-none absolute inset-0 size-full bg-red-300">
+      <div
+        className="absolute inset-0 size-full"
+        style={{
+          backgroundImage: `url(${ANIMATED_BACKGROUND_IMAGE})`,
+          backgroundSize: "auto 25%",
+          backgroundPosition: "top",
+          backgroundRepeat: "repeat",
+        }}
+      />
+
       <Canvas
         className="size-full"
         gl={{ alpha: true, antialias: true }}
