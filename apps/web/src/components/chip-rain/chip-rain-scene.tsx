@@ -1,9 +1,12 @@
 //* Libraries imports
 import { useMemo } from "react"
+import { useFrame } from "@react-three/fiber"
 import { useGLTF } from "@react-three/drei"
 
 //* Components imports
 import { FallingChip } from "@/components/chip-rain/falling-chip"
+import { RainPostEffects } from "@/components/chip-rain/rain-post-effects"
+import { chipRainUniforms } from "@/components/chip-rain/shared-uniforms"
 
 //* Constants imports
 import {
@@ -20,6 +23,10 @@ for (const modelPath of CHIP_MODELS) {
 }
 
 export function ChipRainScene() {
+  useFrame((_, delta) => {
+    chipRainUniforms.uTime.value += delta
+  })
+
   const chips = useMemo(
     () =>
       Array.from({ length: CHIP_COUNT }, (_, index) => ({
@@ -39,8 +46,11 @@ export function ChipRainScene() {
 
   return (
     <>
-      <ambientLight intensity={0.2} />
-      <directionalLight position={[4, 8, 6]} intensity={0.6} />
+      <fog attach="fog" args={["#000000", 6, 16]} />
+      <ambientLight intensity={0.15} />
+      <directionalLight position={[4, 8, 6]} intensity={0.5} />
+      <pointLight position={[-3, 4, 2]} intensity={0.4} color="#9333ea" />
+      <pointLight position={[3, -2, 4]} intensity={0.3} color="#3b82f6" />
       {chips.map((chip) => (
         <FallingChip
           key={chip.id}
@@ -51,6 +61,7 @@ export function ChipRainScene() {
           spinSpeed={chip.spinSpeed}
         />
       ))}
+      <RainPostEffects />
     </>
   )
 }

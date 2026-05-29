@@ -11,6 +11,7 @@ import {
   DESPAWN_Y,
   randomSpawnPosition,
 } from "@/components/chip-rain/constants"
+import { applyChipShader } from "@/components/chip-rain/chip-shader-material"
 
 export type FallingChipProps = {
   modelPath: ChipModelPath
@@ -23,7 +24,11 @@ export type FallingChipProps = {
 export function FallingChip(props: FallingChipProps) {
   const groupRef = useRef<Group>(null)
   const { scene } = useGLTF(props.modelPath)
-  const clonedScene = useMemo(() => scene.clone(), [scene])
+  const clonedScene = useMemo(() => {
+    const clone = scene.clone()
+    applyChipShader(clone)
+    return clone
+  }, [scene])
 
   useFrame((_, delta) => {
     const group = groupRef.current
