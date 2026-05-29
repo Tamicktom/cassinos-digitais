@@ -22,7 +22,7 @@ const ANIMATED_BACKGROUND_IMAGE = "/assets/animated.svg";
 
 function AnimatedBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 size-full bg-red-300">
+    <div className="pointer-events-none absolute inset-0 size-full from-primary to-secondary-foreground bg-linear-to-b">
       <div
         className="absolute inset-0 size-full"
         style={{
