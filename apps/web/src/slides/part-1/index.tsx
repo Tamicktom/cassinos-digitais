@@ -23,16 +23,14 @@ export function Part1() {
 function TitleSlide() {
   return (
     <Slide>
-      <div className="flex h-[50svh] flex-col items-center justify-center rounded-lg border bg-background/50 p-4 relative">
-      <div
-       className="absolute inset-0 size-full bg-white/1 backdrop-blur-sm"
-      />
+      <div className="relative flex h-[50svh] flex-col items-center justify-center overflow-hidden rounded-lg border bg-background/50 p-4">
+        <div className="absolute inset-0 size-full bg-white/50 backdrop-blur-md" />
 
         <div className="relative z-10">
-        <h1 className="font-grand-casino text-7xl font-bold text-primary">
-          Cassinos Digitais
-        </h1>
-        <p className="text-2xl">Quando o Software Quer Seu Dinheiro</p>
+          <h1 className="font-grand-casino text-7xl font-bold text-primary">
+            Cassinos Digitais
+          </h1>
+          <p className="text-2xl">Quando o Software Quer Seu Dinheiro</p>
         </div>
       </div>
     </Slide>

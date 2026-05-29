@@ -40,7 +40,7 @@ export function FallingChip(props: FallingChipProps) {
       group.rotation.set(
         props.initialRotation[0],
         props.initialRotation[1],
-        props.initialRotation[2],
+        props.initialRotation[2]
       )
     }
   })

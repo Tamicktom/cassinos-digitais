@@ -34,7 +34,7 @@ export function ChipRainScene() {
         fallSpeed: randomFallSpeed(),
         spinSpeed: randomSpinSpeed(),
       })),
-    [],
+    []
   )
 
   return (
