@@ -4,6 +4,7 @@ import { Slide as SlidePrimitive, Stack } from "@revealjs/react"
 //* Components imports
 import { Slide } from "@/components/slide"
 import { AboutMeSlide } from "./about-me"
+import { TitleSlide } from "./title"
 
 export function Part1() {
   return (
@@ -23,19 +24,6 @@ export function Part1() {
       {/* Sobre a Apresentação */}
       <AboutPresentationSlide />
     </>
-  )
-}
-
-function TitleSlide() {
-  return (
-    <SlidePrimitive>
-      <h1 className="bg-linear-to-b from-primary to-secondary bg-clip-text font-grand-casino text-[7rem] font-bold text-transparent">
-        Cassinos Digitais
-      </h1>
-      <p className="text-3xl font-bold text-white">
-        Quando o Software Quer Seu Dinheiro
-      </p>
-    </SlidePrimitive>
   )
 }
 
