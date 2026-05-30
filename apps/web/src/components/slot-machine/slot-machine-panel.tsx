@@ -54,14 +54,10 @@ function getSpinButtonLabel(isAutoMode: boolean, isSpinning: boolean) {
 export function SlotMachinePanel(props: SlotMachinePanelProps) {
   return (
     <Card className="h-full">
-      <CardHeader>
-        <CardTitle className="font-grand-casino text-3xl">
+      <CardHeader className="text-center">
+        <CardTitle className="font-grand-casino text-2xl">
           Caça-níqueis
         </CardTitle>
-        <CardDescription>
-          Simulador clássico de 3 rolos com RTP teórico de{" "}
-          {(props.theoreticalRtp * 100).toFixed(1)}%.
-        </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <div className="grid grid-cols-2 gap-4 rounded-xl bg-muted/40 p-4">

@@ -8,8 +8,8 @@ export function SlotMachine() {
   const slotMachine = useSlotMachine()
 
   return (
-    <div className="flex min-h-svh flex-col gap-4 p-4 lg:flex-row lg:items-stretch">
-      <section className="flex flex-1 flex-col gap-4">
+    <div id="slot-machine" className="grid grid-cols-3 gap-4">
+      <section className="flex flex-1 flex-col gap-4 col-span-1">
         <SlotMachinePanel
           balance={slotMachine.balance}
           canSpin={slotMachine.canSpin}
@@ -25,9 +25,9 @@ export function SlotMachine() {
           spinCount={slotMachine.spinCount}
           theoreticalRtp={slotMachine.theoreticalRtp}
         />
-        <PaytableTable />
+        {/* <PaytableTable /> */}
       </section>
-      <section className="flex flex-1 flex-col gap-4">
+      <section className="flex flex-1 flex-col gap-4 col-span-2">
         <HouseProfitChart
           history={slotMachine.history}
           houseProfit={slotMachine.houseProfit}
