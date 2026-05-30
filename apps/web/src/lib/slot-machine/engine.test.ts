@@ -2,7 +2,10 @@
 import { describe, expect, it } from "vitest"
 
 //* Utils imports
-import { calculateTheoreticalRtp } from "./calculate-theoretical-rtp"
+import {
+  calculateTheoreticalRtp,
+  getOutcomeProbabilities,
+} from "./calculate-theoretical-rtp"
 import { SLOT_CONFIG } from "./config"
 import { resolvePayout } from "./resolve-payout"
 import { createSeededRng, spin } from "./spin"
@@ -11,6 +14,19 @@ import { runSimulation } from "./simulate"
 describe("slot machine engine", () => {
   it("calculates theoretical RTP of 95%", () => {
     expect(calculateTheoreticalRtp(SLOT_CONFIG)).toBeCloseTo(0.95, 4)
+  })
+
+  it("calculates outcome probabilities that sum to 1", () => {
+    const outcomes = getOutcomeProbabilities(SLOT_CONFIG)
+    const winningProbability = outcomes.reduce(
+      (total, outcome) => total + outcome.probability,
+      0
+    )
+    const cherryOutcome = outcomes.find((outcome) => outcome.symbol === "cherry")
+
+    expect(cherryOutcome?.probability).toBeCloseTo(Math.pow(776 / 1000, 3), 4)
+    expect(winningProbability).toBeLessThan(1)
+    expect(winningProbability + (1 - winningProbability)).toBeCloseTo(1, 4)
   })
 
   it("validates empirical RTP over 10k simulations", () => {

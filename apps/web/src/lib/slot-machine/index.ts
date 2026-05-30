@@ -1,4 +1,8 @@
-export { calculateTheoreticalRtp } from "./calculate-theoretical-rtp"
+export {
+  calculateTheoreticalRtp,
+  getOutcomeProbabilities,
+} from "./calculate-theoretical-rtp"
+export type { OutcomeProbability } from "./calculate-theoretical-rtp"
 export {
   BET_AMOUNT,
   INITIAL_BALANCE,

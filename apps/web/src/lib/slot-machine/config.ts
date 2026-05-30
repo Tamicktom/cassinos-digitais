@@ -50,11 +50,11 @@ export const SLOT_CONFIG: SlotConfig = {
 }
 
 export const SYMBOL_LABELS: Record<SlotSymbol, string> = {
-  cherry: "Cherry",
-  lemon: "Lemon",
-  orange: "Orange",
-  bell: "Bell",
-  seven: "Seven",
+  cherry: "Cereja",
+  lemon: "Limão",
+  orange: "Laranja",
+  bell: "Sino",
+  seven: "Sete",
 }
 
 export const SYMBOL_EMOJI: Record<SlotSymbol, string> = {

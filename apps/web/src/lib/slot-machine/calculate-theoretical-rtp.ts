@@ -1,6 +1,12 @@
 //* Types imports
 import type { SlotConfig, SlotSymbol } from "./types"
 
+export type OutcomeProbability = {
+  symbol: SlotSymbol
+  payout: number
+  probability: number
+}
+
 function getSymbolProbabilities(strip: SlotConfig["strips"][number]) {
   const counts = new Map<SlotSymbol, number>()
 
@@ -18,19 +24,36 @@ function getSymbolProbabilities(strip: SlotConfig["strips"][number]) {
   return probabilities
 }
 
-export function calculateTheoreticalRtp(config: SlotConfig): number {
+function getMatchProbability(
+  symbol: SlotSymbol,
+  reelProbabilities: Map<SlotSymbol, number>[]
+) {
+  return reelProbabilities.reduce((product, probabilities) => {
+    return product * (probabilities.get(symbol) ?? 0)
+  }, 1)
+}
+
+export function getOutcomeProbabilities(
+  config: SlotConfig
+): OutcomeProbability[] {
   const reelProbabilities = config.strips.map(getSymbolProbabilities)
   const symbols = Object.keys(config.paytable) as SlotSymbol[]
 
-  let expectedPayout = 0
+  return symbols
+    .map((symbol) => ({
+      symbol,
+      payout: config.paytable[symbol],
+      probability: getMatchProbability(symbol, reelProbabilities),
+    }))
+    .sort((first, second) => first.payout - second.payout)
+}
 
-  for (const symbol of symbols) {
-    const matchProbability = reelProbabilities.reduce((product, probabilities) => {
-      return product * (probabilities.get(symbol) ?? 0)
-    }, 1)
+export function calculateTheoreticalRtp(config: SlotConfig): number {
+  const outcomes = getOutcomeProbabilities(config)
 
-    expectedPayout += matchProbability * config.paytable[symbol]
-  }
+  const expectedPayout = outcomes.reduce((total, outcome) => {
+    return total + outcome.probability * outcome.payout
+  }, 0)
 
   return expectedPayout / config.betAmount
 }

@@ -41,14 +41,14 @@ function formatCurrency(value: number) {
 
 function getSpinButtonLabel(isAutoMode: boolean, isSpinning: boolean) {
   if (isAutoMode && isSpinning) {
-    return "Auto spinning..."
+    return "Girando automaticamente..."
   }
 
   if (isSpinning) {
-    return "Spinning..."
+    return "Girando..."
   }
 
-  return "Spin"
+  return "Girar"
 }
 
 export function SlotMachinePanel(props: SlotMachinePanelProps) {
@@ -56,10 +56,10 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
     <Card className="h-full">
       <CardHeader>
         <CardTitle className="font-grand-casino text-3xl">
-          Slot Machine
+          Caça-níqueis
         </CardTitle>
         <CardDescription>
-          Classic 3-reel simulator with a theoretical RTP of{" "}
+          Simulador clássico de 3 rolos com RTP teórico de{" "}
           {(props.theoreticalRtp * 100).toFixed(1)}%.
         </CardDescription>
       </CardHeader>
@@ -67,7 +67,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
         <div className="grid grid-cols-2 gap-4 rounded-xl bg-muted/40 p-4">
           <div className="flex flex-col gap-1">
             <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Balance
+              Saldo
             </span>
             <span className="text-2xl font-semibold">
               {formatCurrency(props.balance)}
@@ -75,7 +75,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Last payout
+              Último prêmio
             </span>
             <span className="text-2xl font-semibold">
               {formatCurrency(props.lastPayout)}
@@ -83,7 +83,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Bet
+              Aposta
             </span>
             <span className="text-lg font-medium">
               {formatCurrency(BET_AMOUNT)}
@@ -91,7 +91,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Spins
+              Giros
             </span>
             <span className="text-lg font-medium">{props.spinCount}</span>
           </div>
@@ -118,17 +118,17 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
             type="button"
             variant={props.isTurbo ? "secondary" : "outline"}
           >
-            {props.isTurbo ? "Turbo ON" : "Turbo"}
+            {props.isTurbo ? "Turbo ligado" : "Turbo"}
           </Button>
           <Button
-            aria-label="Auto spin until balance runs out"
+            aria-label="Giro automático até o saldo acabar"
             aria-pressed={props.isAutoMode}
             id="slot-machine-auto"
             onClick={props.onToggleAutoMode}
             type="button"
             variant={props.isAutoMode ? "secondary" : "outline"}
           >
-            {props.isAutoMode ? "Auto ON" : "Auto"}
+            {props.isAutoMode ? "Auto ligado" : "Auto"}
           </Button>
         </div>
         <Button
@@ -148,7 +148,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
           type="button"
           variant="outline"
         >
-          Reset
+          Reiniciar
         </Button>
       </CardFooter>
     </Card>

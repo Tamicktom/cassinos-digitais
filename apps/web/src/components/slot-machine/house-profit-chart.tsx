@@ -32,7 +32,7 @@ type HouseProfitChartProps = {
 
 const chartConfig = {
   houseProfit: {
-    label: "House profit",
+    label: "Lucro da casa",
     color: "var(--chart-1)",
   },
 }
@@ -53,17 +53,17 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>House profit</CardTitle>
+        <CardTitle>Lucro da casa</CardTitle>
         <CardDescription>
-          Money retained by the house after each spin. The house edge is the
-          gap between total wagered and total paid out.
+          Dinheiro retido pela casa após cada giro. A vantagem da casa é a
+          diferença entre o total apostado e o total pago.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-4 rounded-xl bg-muted/40 p-4">
           <div className="flex flex-col gap-1">
             <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Current profit
+              Lucro atual
             </span>
             <span className="text-2xl font-semibold text-chart-1">
               {formatCurrency(props.houseProfit)}
@@ -71,7 +71,7 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Spins recorded
+              Giros registrados
             </span>
             <span className="text-2xl font-semibold">{props.spinCount}</span>
           </div>

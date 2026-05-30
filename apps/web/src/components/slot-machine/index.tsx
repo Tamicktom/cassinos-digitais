@@ -1,5 +1,6 @@
 //* Components imports
 import { HouseProfitChart } from "@/components/slot-machine/house-profit-chart"
+import { PaytableTable } from "@/components/slot-machine/paytable-table"
 import { SlotMachinePanel } from "@/components/slot-machine/slot-machine-panel"
 import { useSlotMachine } from "@/components/slot-machine/use-slot-machine"
 
@@ -24,6 +25,7 @@ export function SlotMachine() {
           spinCount={slotMachine.spinCount}
           theoreticalRtp={slotMachine.theoreticalRtp}
         />
+        <PaytableTable />
       </section>
       <section className="flex flex-1 flex-col gap-4">
         <HouseProfitChart
