@@ -3,8 +3,6 @@ import { Button } from "@workspace/ui/components/button"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card"
@@ -60,9 +58,9 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
-        <div className="grid grid-cols-2 gap-4 rounded-xl bg-muted/40 p-4">
+        <div className="grid grid-cols-2 gap-4 rounded-xl p-4">
           <div className="flex flex-col gap-1">
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+            <span className="text-xs tracking-wide text-black uppercase">
               Saldo
             </span>
             <span className="text-2xl font-semibold">
@@ -70,7 +68,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+            <span className="text-xs tracking-wide text-black uppercase">
               Último prêmio
             </span>
             <span className="text-2xl font-semibold">
@@ -78,7 +76,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+            <span className="text-xs tracking-wide text-black uppercase">
               Aposta
             </span>
             <span className="text-lg font-medium">
@@ -86,14 +84,14 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+            <span className="text-xs tracking-wide text-black uppercase">
               Giros
             </span>
             <span className="text-lg font-medium">{props.spinCount}</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-3 rounded-xl border bg-muted/20 p-6">
+        <div className="flex items-center justify-center gap-2">
           {props.displayReels.map((symbol, reelIndex) => (
             <Reel
               isSpinning={props.isSpinning}
@@ -104,49 +102,50 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
             />
           ))}
         </div>
-      </CardContent>
-      <CardFooter className="flex flex-col gap-3">
-        <div className="grid w-full grid-cols-2 gap-3">
+
+        <div className="flex flex-col gap-2">
+          <div className="grid w-full grid-cols-3 gap-3">
+            <Button
+              className="w-full"
+              id="slot-machine-reset"
+              onClick={props.onReset}
+              type="button"
+              variant="outline"
+            >
+              Reiniciar
+            </Button>
+            <Button
+              aria-pressed={props.isTurbo}
+              id="slot-machine-turbo"
+              onClick={props.onToggleTurbo}
+              type="button"
+              variant={props.isTurbo ? "secondary" : "outline"}
+            >
+              {props.isTurbo ? "Turbo ligado" : "Turbo"}
+            </Button>
+            <Button
+              aria-label="Giro automático até o saldo acabar"
+              aria-pressed={props.isAutoMode}
+              id="slot-machine-auto"
+              onClick={props.onToggleAutoMode}
+              type="button"
+              variant={props.isAutoMode ? "secondary" : "outline"}
+            >
+              {props.isAutoMode ? "Auto ligado" : "Auto"}
+            </Button>
+          </div>
           <Button
-            aria-pressed={props.isTurbo}
-            id="slot-machine-turbo"
-            onClick={props.onToggleTurbo}
+            className="w-full"
+            disabled={!props.canSpin}
+            id="slot-machine-spin"
+            onClick={props.onSpin}
+            size="lg"
             type="button"
-            variant={props.isTurbo ? "secondary" : "outline"}
           >
-            {props.isTurbo ? "Turbo ligado" : "Turbo"}
-          </Button>
-          <Button
-            aria-label="Giro automático até o saldo acabar"
-            aria-pressed={props.isAutoMode}
-            id="slot-machine-auto"
-            onClick={props.onToggleAutoMode}
-            type="button"
-            variant={props.isAutoMode ? "secondary" : "outline"}
-          >
-            {props.isAutoMode ? "Auto ligado" : "Auto"}
+            {getSpinButtonLabel(props.isAutoMode, props.isSpinning)}
           </Button>
         </div>
-        <Button
-          className="w-full"
-          disabled={!props.canSpin}
-          id="slot-machine-spin"
-          onClick={props.onSpin}
-          size="lg"
-          type="button"
-        >
-          {getSpinButtonLabel(props.isAutoMode, props.isSpinning)}
-        </Button>
-        <Button
-          className="w-full"
-          id="slot-machine-reset"
-          onClick={props.onReset}
-          type="button"
-          variant="outline"
-        >
-          Reiniciar
-        </Button>
-      </CardFooter>
+      </CardContent>
     </Card>
   )
 }

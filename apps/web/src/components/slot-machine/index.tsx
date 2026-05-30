@@ -9,7 +9,7 @@ export function SlotMachine() {
 
   return (
     <div id="slot-machine" className="grid grid-cols-3 gap-4">
-      <section className="flex flex-1 flex-col gap-4 col-span-1">
+      <section className="col-span-1 flex flex-1 flex-col gap-4">
         <SlotMachinePanel
           balance={slotMachine.balance}
           canSpin={slotMachine.canSpin}
@@ -27,7 +27,7 @@ export function SlotMachine() {
         />
         {/* <PaytableTable /> */}
       </section>
-      <section className="flex flex-1 flex-col gap-4 col-span-2">
+      <section className="col-span-2 flex flex-1 flex-col gap-4">
         <HouseProfitChart
           history={slotMachine.history}
           houseProfit={slotMachine.houseProfit}

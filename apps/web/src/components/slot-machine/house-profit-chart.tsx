@@ -1,11 +1,5 @@
 //* Libraries imports
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  XAxis,
-  YAxis,
-} from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 //* Components imports
 import {
@@ -46,23 +40,19 @@ function formatCurrency(value: number) {
 
 export function HouseProfitChart(props: HouseProfitChartProps) {
   const chartData =
-    props.history.length > 0
-      ? props.history
-      : [{ spin: 0, houseProfit: 0 }]
+    props.history.length > 0 ? props.history : [{ spin: 0, houseProfit: 0 }]
 
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>Lucro da casa</CardTitle>
-        <CardDescription>
-          Dinheiro retido pela casa após cada giro. A vantagem da casa é a
-          diferença entre o total apostado e o total pago.
-        </CardDescription>
+        <CardTitle className="text-center font-grand-casino text-2xl">
+          Lucro da casa
+        </CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        <div className="grid grid-cols-2 gap-4 rounded-xl bg-muted/40 p-4">
+      <CardContent className="flex flex-col gap-4 p-0 pr-4">
+        <div className="grid grid-cols-2 gap-4 rounded-xl p-4">
           <div className="flex flex-col gap-1">
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+            <span className="text-xs tracking-wide text-black uppercase">
               Lucro atual
             </span>
             <span className="text-2xl font-semibold text-chart-1">
@@ -70,7 +60,7 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+            <span className="text-xs tracking-wide text-black uppercase">
               Giros registrados
             </span>
             <span className="text-2xl font-semibold">{props.spinCount}</span>
@@ -100,15 +90,16 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
               content={
                 <ChartTooltipContent
                   formatter={(value) => formatCurrency(Number(value))}
+                  className="bg-white"
                 />
               }
             />
             <Line
               dataKey="houseProfit"
               dot={false}
-              stroke="var(--color-houseProfit)"
               strokeWidth={2}
               type="monotone"
+              stroke="var(--color-chart-1)"
             />
           </LineChart>
         </ChartContainer>

@@ -35,10 +35,7 @@ function formatProbability(value: number) {
 }
 
 export function PaytableTable() {
-  const outcomes = useMemo(
-    () => getOutcomeProbabilities(SLOT_CONFIG),
-    []
-  )
+  const outcomes = useMemo(() => getOutcomeProbabilities(SLOT_CONFIG), [])
 
   const winningProbability = useMemo(() => {
     return outcomes.reduce((total, outcome) => total + outcome.probability, 0)
@@ -69,12 +66,16 @@ export function PaytableTable() {
               <Table.Row key={outcome.symbol}>
                 <Table.Cell>
                   <span className="flex items-center gap-2">
-                    <span aria-hidden="true">{SYMBOL_EMOJI[outcome.symbol]}</span>
+                    <span aria-hidden="true">
+                      {SYMBOL_EMOJI[outcome.symbol]}
+                    </span>
                     <span>{SYMBOL_LABELS[outcome.symbol]}</span>
                   </span>
                 </Table.Cell>
                 <Table.Cell>{formatCurrency(outcome.payout)}</Table.Cell>
-                <Table.Cell>{formatProbability(outcome.probability)}</Table.Cell>
+                <Table.Cell>
+                  {formatProbability(outcome.probability)}
+                </Table.Cell>
               </Table.Row>
             ))}
             <Table.Row>

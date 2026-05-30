@@ -14,7 +14,11 @@ import { calculateTheoreticalRtp } from "@/lib/slot-machine/calculate-theoretica
 import { spin as executeSpin } from "@/lib/slot-machine/spin"
 
 //* Types imports
-import type { HouseProfitPoint, SlotSymbol, SpinResult } from "@/lib/slot-machine/types"
+import type {
+  HouseProfitPoint,
+  SlotSymbol,
+  SpinResult,
+} from "@/lib/slot-machine/types"
 
 export function useSlotMachine() {
   const [balance, setBalance] = useState(INITIAL_BALANCE)
@@ -30,10 +34,7 @@ export function useSlotMachine() {
   const spinTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isTurboRef = useRef(isTurbo)
 
-  const theoreticalRtp = useMemo(
-    () => calculateTheoreticalRtp(SLOT_CONFIG),
-    []
-  )
+  const theoreticalRtp = useMemo(() => calculateTheoreticalRtp(SLOT_CONFIG), [])
 
   const canSpin = !isSpinning && balance >= BET_AMOUNT && !isAutoMode
 

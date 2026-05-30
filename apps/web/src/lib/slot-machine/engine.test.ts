@@ -22,7 +22,9 @@ describe("slot machine engine", () => {
       (total, outcome) => total + outcome.probability,
       0
     )
-    const cherryOutcome = outcomes.find((outcome) => outcome.symbol === "cherry")
+    const cherryOutcome = outcomes.find(
+      (outcome) => outcome.symbol === "cherry"
+    )
 
     expect(cherryOutcome?.probability).toBeCloseTo(Math.pow(776 / 1000, 3), 4)
     expect(winningProbability).toBeLessThan(1)
@@ -36,7 +38,10 @@ describe("slot machine engine", () => {
     expect(result.empiricalRtp).toBeLessThan(0.97)
     expect(result.houseProfit).toBe(result.totalWagered - result.totalPaid)
 
-    console.log("After 10k simulations, the empirical RTP is", result.empiricalRtp)
+    console.log(
+      "After 10k simulations, the empirical RTP is",
+      result.empiricalRtp
+    )
   })
 
   it("validates empirical RTP over 1m simulations", () => {
@@ -46,7 +51,10 @@ describe("slot machine engine", () => {
     expect(result.empiricalRtp).toBeLessThan(0.97)
     expect(result.houseProfit).toBe(result.totalWagered - result.totalPaid)
 
-    console.log("After 1m simulations, the empirical RTP is", result.empiricalRtp)
+    console.log(
+      "After 1m simulations, the empirical RTP is",
+      result.empiricalRtp
+    )
   })
 
   it("returns deterministic results with a seeded RNG", () => {
@@ -57,11 +65,23 @@ describe("slot machine engine", () => {
   })
 
   it("resolves payouts for winning and losing combinations", () => {
-    expect(resolvePayout(["cherry", "cherry", "cherry"], SLOT_CONFIG.paytable)).toBe(2)
-    expect(resolvePayout(["lemon", "lemon", "lemon"], SLOT_CONFIG.paytable)).toBe(5)
-    expect(resolvePayout(["orange", "orange", "orange"], SLOT_CONFIG.paytable)).toBe(15)
-    expect(resolvePayout(["bell", "bell", "bell"], SLOT_CONFIG.paytable)).toBe(40)
-    expect(resolvePayout(["seven", "seven", "seven"], SLOT_CONFIG.paytable)).toBe(120)
-    expect(resolvePayout(["cherry", "lemon", "cherry"], SLOT_CONFIG.paytable)).toBe(0)
+    expect(
+      resolvePayout(["cherry", "cherry", "cherry"], SLOT_CONFIG.paytable)
+    ).toBe(2)
+    expect(
+      resolvePayout(["lemon", "lemon", "lemon"], SLOT_CONFIG.paytable)
+    ).toBe(5)
+    expect(
+      resolvePayout(["orange", "orange", "orange"], SLOT_CONFIG.paytable)
+    ).toBe(15)
+    expect(resolvePayout(["bell", "bell", "bell"], SLOT_CONFIG.paytable)).toBe(
+      40
+    )
+    expect(
+      resolvePayout(["seven", "seven", "seven"], SLOT_CONFIG.paytable)
+    ).toBe(120)
+    expect(
+      resolvePayout(["cherry", "lemon", "cherry"], SLOT_CONFIG.paytable)
+    ).toBe(0)
   })
 })
