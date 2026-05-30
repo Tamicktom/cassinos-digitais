@@ -12,27 +12,24 @@ export function AboutMeSlide() {
 
   return (
     <Slide className="justify-start">
-      <h2 className="font-grand-casino text-5xl font-bold text-white pb-4">
-      ♣ Sobre Mim
+      <h2 className="pb-4 font-grand-casino text-5xl font-bold text-white">
+        ♣ Sobre Mim
       </h2>
-      <div className="w-full text-lg text-foreground flex justify-center items-center h-full">
-
-      <div>
-      <ul className="list-item list-inside space-y-2 text-left text-2xl">
-        <li className="club">
-        Formado em Sistemas para Internet pela FATEC de Jales.
-        </li>
-        <li className="heart">
-        Cursando Ciência de Dados pela UNIVESP.
-        </li>
-        <li className="diamond">
-        Mestrando em Ciências da Computação pela UNESP.
-        </li>
-        <li className="spade">
-          Atualmente trabalhando como Engenheiro de Software na Entersience
-        </li>
-      </ul>
-      </div>
+      <div className="flex h-full w-full items-center justify-center text-lg text-foreground">
+        <div>
+          <ul className="list-item list-inside space-y-2 text-left text-2xl">
+            <li className="club">
+              Formado em Sistemas para Internet pela FATEC de Jales.
+            </li>
+            <li className="heart">Cursando Ciência de Dados pela UNIVESP.</li>
+            <li className="diamond">
+              Mestrando em Ciências da Computação pela UNESP.
+            </li>
+            <li className="spade">
+              Atualmente trabalhando como Engenheiro de Software na Entersience
+            </li>
+          </ul>
+        </div>
       </div>
     </Slide>
   )

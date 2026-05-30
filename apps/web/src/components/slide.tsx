@@ -36,7 +36,9 @@ export function Slide(props: SlideProps) {
         )}
       >
         <div className="absolute inset-0 size-full bg-background/95 backdrop-blur-md" />
-        <div className="relative z-10 w-full text-foreground">{props.children}</div>
+        <div className="relative z-10 w-full text-foreground">
+          {props.children}
+        </div>
       </div>
     </SlidePrimitive>
   )
