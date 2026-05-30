@@ -12,6 +12,7 @@ import type { SlotSymbol } from "@/lib/slot-machine/types"
 type ReelProps = {
   symbol: SlotSymbol
   isSpinning: boolean
+  isTurbo?: boolean
   reelIndex: number
 }
 
@@ -24,15 +25,19 @@ export function Reel(props: ReelProps) {
       return
     }
 
+    const cycleIntervalMs = props.isTurbo
+      ? 30 + props.reelIndex * 15
+      : 80 + props.reelIndex * 40
+
     const intervalId = window.setInterval(() => {
       const randomIndex = Math.floor(Math.random() * SLOT_SYMBOLS.length)
       setDisplaySymbol(SLOT_SYMBOLS[randomIndex])
-    }, 80 + props.reelIndex * 40)
+    }, cycleIntervalMs)
 
     return () => {
       window.clearInterval(intervalId)
     }
-  }, [props.isSpinning, props.reelIndex, props.symbol])
+  }, [props.isSpinning, props.isTurbo, props.reelIndex, props.symbol])
 
   return (
     <motion.div
@@ -44,7 +49,11 @@ export function Reel(props: ReelProps) {
       className="flex h-28 w-24 items-center justify-center rounded-xl border-2 border-primary/30 bg-background/80 text-5xl shadow-inner"
       transition={
         props.isSpinning
-          ? { duration: 0.2, repeat: Infinity, ease: "easeInOut" }
+          ? {
+              duration: props.isTurbo ? 0.1 : 0.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }
           : { type: "spring", stiffness: 260, damping: 18 }
       }
     >

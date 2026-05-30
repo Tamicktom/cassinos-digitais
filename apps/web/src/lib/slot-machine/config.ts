@@ -6,6 +6,9 @@ export { SLOT_SYMBOLS } from "./types"
 export const BET_AMOUNT = 1
 export const TARGET_RTP = 0.95
 export const INITIAL_BALANCE = 1000
+export const SPIN_DURATION_MS = 1500
+export const SPIN_DURATION_TURBO_MS = 300
+export const INITIAL_REELS: SlotSymbol[] = ["cherry", "lemon", "orange"]
 
 export const PAYTABLE: Paytable = {
   cherry: 2,

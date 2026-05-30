@@ -20,9 +20,14 @@ type SlotMachinePanelProps = {
   balance: number
   canSpin: boolean
   displayReels: SlotSymbol[]
+  isAutoMode: boolean
   isSpinning: boolean
+  isTurbo: boolean
   lastPayout: number
+  onReset: () => void
   onSpin: () => void
+  onToggleAutoMode: () => void
+  onToggleTurbo: () => void
   spinCount: number
   theoreticalRtp: number
 }
@@ -32,6 +37,18 @@ function formatCurrency(value: number) {
     style: "currency",
     currency: "BRL",
   })
+}
+
+function getSpinButtonLabel(isAutoMode: boolean, isSpinning: boolean) {
+  if (isAutoMode && isSpinning) {
+    return "Auto spinning..."
+  }
+
+  if (isSpinning) {
+    return "Spinning..."
+  }
+
+  return "Spin"
 }
 
 export function SlotMachinePanel(props: SlotMachinePanelProps) {
@@ -84,6 +101,7 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
           {props.displayReels.map((symbol, reelIndex) => (
             <Reel
               isSpinning={props.isSpinning}
+              isTurbo={props.isTurbo}
               key={reelIndex}
               reelIndex={reelIndex}
               symbol={symbol}
@@ -91,7 +109,28 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
           ))}
         </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-col gap-3">
+        <div className="grid w-full grid-cols-2 gap-3">
+          <Button
+            aria-pressed={props.isTurbo}
+            id="slot-machine-turbo"
+            onClick={props.onToggleTurbo}
+            type="button"
+            variant={props.isTurbo ? "secondary" : "outline"}
+          >
+            {props.isTurbo ? "Turbo ON" : "Turbo"}
+          </Button>
+          <Button
+            aria-label="Auto spin until balance runs out"
+            aria-pressed={props.isAutoMode}
+            id="slot-machine-auto"
+            onClick={props.onToggleAutoMode}
+            type="button"
+            variant={props.isAutoMode ? "secondary" : "outline"}
+          >
+            {props.isAutoMode ? "Auto ON" : "Auto"}
+          </Button>
+        </div>
         <Button
           className="w-full"
           disabled={!props.canSpin}
@@ -100,7 +139,16 @@ export function SlotMachinePanel(props: SlotMachinePanelProps) {
           size="lg"
           type="button"
         >
-          {props.isSpinning ? "Spinning..." : "Spin"}
+          {getSpinButtonLabel(props.isAutoMode, props.isSpinning)}
+        </Button>
+        <Button
+          className="w-full"
+          id="slot-machine-reset"
+          onClick={props.onReset}
+          type="button"
+          variant="outline"
+        >
+          Reset
         </Button>
       </CardFooter>
     </Card>

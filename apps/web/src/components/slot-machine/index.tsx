@@ -13,9 +13,14 @@ export function SlotMachine() {
           balance={slotMachine.balance}
           canSpin={slotMachine.canSpin}
           displayReels={slotMachine.displayReels}
+          isAutoMode={slotMachine.isAutoMode}
           isSpinning={slotMachine.isSpinning}
+          isTurbo={slotMachine.isTurbo}
           lastPayout={slotMachine.lastPayout}
+          onReset={slotMachine.reset}
           onSpin={slotMachine.spin}
+          onToggleAutoMode={slotMachine.toggleAutoMode}
+          onToggleTurbo={slotMachine.toggleTurbo}
           spinCount={slotMachine.spinCount}
           theoreticalRtp={slotMachine.theoreticalRtp}
         />
