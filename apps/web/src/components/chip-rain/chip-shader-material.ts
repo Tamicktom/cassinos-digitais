@@ -65,7 +65,9 @@ const fragmentShader = /* glsl */ `
   }
 `
 
-function createChipShaderMaterial(original: THREE.Material): THREE.ShaderMaterial {
+function createChipShaderMaterial(
+  original: THREE.Material
+): THREE.ShaderMaterial {
   let baseColor = new THREE.Color(1, 1, 1)
   let map: THREE.Texture | null = null
   let opacity = 1
@@ -101,7 +103,9 @@ export function applyChipShader(object: THREE.Object3D) {
 
     const original = child.material
     if (Array.isArray(original)) {
-      child.material = original.map((material) => createChipShaderMaterial(material))
+      child.material = original.map((material) =>
+        createChipShaderMaterial(material)
+      )
       return
     }
 

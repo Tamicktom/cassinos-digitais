@@ -1,7 +1,5 @@
-//* Libraries imports
-import { Slide } from "@revealjs/react"
-
 //* Components imports
+import { Slide } from "@/components/slide"
 import { AboutMeSlide } from "./about-me"
 
 export function Part1() {
@@ -23,16 +21,10 @@ export function Part1() {
 function TitleSlide() {
   return (
     <Slide>
-      <div className="relative flex h-[50svh] flex-col items-center justify-center overflow-hidden rounded-lg border bg-background/50 p-4">
-        <div className="absolute inset-0 size-full bg-white/50 backdrop-blur-md" />
-
-        <div className="relative z-10">
-          <h1 className="font-grand-casino text-7xl font-bold text-primary">
-            Cassinos Digitais
-          </h1>
-          <p className="text-2xl">Quando o Software Quer Seu Dinheiro</p>
-        </div>
-      </div>
+      <h1 className="font-grand-casino text-7xl font-bold text-primary">
+        Cassinos Digitais
+      </h1>
+      <p className="text-2xl">Quando o Software Quer Seu Dinheiro</p>
     </Slide>
   )
 }
@@ -40,8 +32,8 @@ function TitleSlide() {
 function AboutPresentationSlide() {
   return (
     <Slide>
-      <h2>Sobre a Apresentação</h2>O que é arquitetura de software? O que é
-      engenharia de software?
+      <h2>Sobre a Apresentação</h2>
+      <p>O que é arquitetura de software? O que é engenharia de software?</p>
     </Slide>
   )
 }
@@ -50,8 +42,10 @@ function DisclaimerSlide() {
   return (
     <Slide>
       <h2>Disclaimer</h2>
-      Não estou ensinando a criar um cassino digital real nem incentivando
-      apostas.
+      <p>
+        Não estou ensinando a criar um cassino digital real nem incentivando
+        apostas.
+      </p>
     </Slide>
   )
 }
