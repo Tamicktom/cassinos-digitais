@@ -18,22 +18,22 @@
 }
 
 :root {
-  --background: oklch(0.97 0.01 71.90);
-  --foreground: oklch(0.34 0.03 95.72);
-  --card: oklch(0.98 0.01 95.10);
-  --card-foreground: oklch(0.19 0.00 106.59);
+  --background: oklch(0.47 0.07 160.52);
+  --foreground: oklch(0.97 0.02 164.43);
+  --card: oklch(0.99 0.01 164.64);
+  --card-foreground: oklch(0.29 0.01 156.76);
   --popover: oklch(1.00 0 0);
   --popover-foreground: oklch(0.27 0.02 98.94);
-  --primary: oklch(53.99% 0.167 30.38);
-  --primary-foreground: oklch(83.04% 0.046 75.90);
-  --secondary: oklch(38.37% 0.020 118.76);
-  --secondary-foreground: oklch(87.12% 0.041 89.70);
-  --muted: oklch(0.955 0.0124 91.52);
-  --muted-foreground: oklch(0.61 0.01 97.42);
-  --accent: oklch(0.92 0.01 92.99);
+  --primary: oklch(54.98% 0.210 21.60);
+  --primary-foreground: oklch(0.95 0.02 17.58);
+  --secondary: oklch(0.80 0.17 71.73);
+  --secondary-foreground: oklch(0.27 0.05 79.97);
+  --muted: oklch(0.38 0.03 161.50);
+  --muted-foreground: oklch(0.93 0.04 163.92);
+  --accent: oklch(0.54 0.10 82.93);
   --accent-foreground: oklch(0.27 0.02 98.94);
   --destructive: oklch(0.19 0.00 106.59);
-  --border: oklch(0.9078 0.0094 106.59);
+  --border: oklch(0.59 0.07 161.52);
   --input: oklch(0.76 0.02 98.35);
   --ring: oklch(0.59 0.17 253.06);
   --chart-1: oklch(0.72 0.18 46.91);
@@ -59,8 +59,6 @@
   --shadow-lg: 0 1px 3px 0px oklch(0.00 0 0 / 0.10), 0 4px 6px -1px oklch(0.00 0 0 / 0.10);
   --shadow-xl: 0 1px 3px 0px oklch(0.00 0 0 / 0.10), 0 8px 10px -1px oklch(0.00 0 0 / 0.10);
   --shadow-2xl: 0 1px 3px 0px oklch(0.00 0 0 / 0.25);
-
-  --font-grand-casino: "Grand Casino", sans-serif;
 }
 
 .dark {
@@ -107,6 +105,8 @@
 }
 
 @theme inline {
+  --font-grand-casino: "Grand Casino", sans-serif;
+
   --font-heading: var(--font-sans);
   --font-sans: var(--font-heading);
   --color-background: var(--background);
@@ -157,8 +157,6 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
-
-  --font-grand-casino: var(--font-grand-casino);
 }
 
 @layer base {
@@ -179,4 +177,22 @@
   pre {
     font-family: var(--font-mono);
   }
+}
+
+/* Naipes de cartas para renderizar antes de texto */
+
+.heart:before {
+  content: "♥ ";
+}
+
+.diamond:before {
+  content: "♦ ";
+}
+
+.club:before {
+  content: "♣ ";
+}
+
+.spade:before {
+  content: "♠ ";
 }

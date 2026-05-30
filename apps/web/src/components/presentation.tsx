@@ -15,6 +15,9 @@ export function Presentation() {
       config={{
         transition: "slide",
       }}
+      onSlideChange={(props) => {
+        console.log(props)
+      }}
     >
       {/* Introduction */}
       <Part1 />

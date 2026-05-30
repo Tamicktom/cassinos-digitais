@@ -15,7 +15,7 @@ export function RainPostEffects() {
         luminanceSmoothing={0.85}
         mipmapBlur
       />
-      <ChromaticAberration offset={[0.0004, 0.0004]} />
+      <ChromaticAberration offset={[0.0004, 0.0008]} />
       <Vignette eskil={false} offset={0.25} darkness={0.65} />
     </EffectComposer>
   )

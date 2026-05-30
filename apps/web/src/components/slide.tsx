@@ -7,7 +7,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@workspace/ui/lib/utils"
 
 const slideBoxVariants = cva(
-  "relative flex h-[50svh] flex-col items-center justify-center overflow-hidden rounded-lg border bg-background/50 p-4",
+  "relative flex h-[50svh] flex-col items-center justify-center overflow-hidden rounded-lg border bg-transparent p-4",
   {
     variants: {
       height: {
@@ -35,9 +35,8 @@ export function Slide(props: SlideProps) {
           props.className
         )}
       >
-        <div className="absolute inset-0 size-full bg-white/50 backdrop-blur-md" />
-
-        <div className="relative z-10">{props.children}</div>
+        <div className="absolute inset-0 size-full bg-background/95 backdrop-blur-md" />
+        <div className="relative z-10 w-full text-foreground">{props.children}</div>
       </div>
     </SlidePrimitive>
   )
