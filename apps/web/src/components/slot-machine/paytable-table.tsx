@@ -46,8 +46,8 @@ export function PaytableTable() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Tabela de prêmios</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-5xl font-grand-casino">Tabela de prêmios</CardTitle>
+        <CardDescription className="text-neutral-600 text-lg">
           Valores e probabilidades de cada combinação vencedora (3 símbolos
           iguais).
         </CardDescription>
