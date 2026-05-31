@@ -3,10 +3,8 @@ import { Stack } from "@revealjs/react"
 
 //* Components imports
 import { Slide } from "@/components/slide"
-import { SlotMachine } from "@/components/slot-machine"
-import { PaytableTable } from "@/components/slot-machine/paytable-table"
-import { CombinationsTable } from "@/components/slot-machine/combinations-table"
-import { Crash } from "@/components/crash"
+
+const formula = `\[\begin{aligned} \dot{x} &amp; = \sigma(y-x) \\ \dot{y} &amp; = \rho x - y - xz \\ \dot{z} &amp; = -\beta z + xy \end{aligned} \]`;
 
 export function Part4() {
   return (
@@ -14,22 +12,18 @@ export function Part4() {
       <Stack>
         <Slide>
           <h2>Matemática</h2>
+          <p>
+            A casa não precisa de sorte.
+          </p>
         </Slide>
 
-        <Slide className="h-[65svh]">
-          <h2>Simulação de caça-níqueis</h2>
+        <Slide>
+          <p>Teste de fórmula:</p>
+          {formula}
         </Slide>
-        <Slide className="h-[65svh]">
-          <PaytableTable />
-        </Slide>
-        <Slide className="h-[70svh]">
-          <CombinationsTable />
-        </Slide>
-        <Slide className="h-[65svh]">
-          <SlotMachine />
-        </Slide>
-        <Slide className="h-[65svh]">
-          <Crash />
+
+        <Slide>
+          <h2>Valor Esperado</h2>
         </Slide>
       </Stack>
     </>
