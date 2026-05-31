@@ -1,14 +1,17 @@
 //* Libraries imports
-import { Slide, Stack } from "@revealjs/react"
+import { Stack } from "@revealjs/react"
 
-//* Local imports
+//* Components imports
+import { Slide } from "@/components/slide"
 import { Requiriments } from "./requirements"
 
 export function Part2() {
   return (
     <>
       <Slide>
-        <h2>Se eu pedir para você arquitetar um sistema, o que você faria?</h2>
+        <h2 className="font-grand-casino text-5xl font-bold text-white">
+          Se eu pedir para você fazer um tigrinho, <br /> como você faria?
+        </h2>
       </Slide>
       <AboutArchitecture />
       <Requiriments />
@@ -19,24 +22,27 @@ export function Part2() {
 function AboutArchitecture() {
   return (
     <Slide>
-      <p className="text-foreground">
+      <p className="pb-12 text-center text-3xl font-bold text-white">
         Arquitetar um sistema é essencialmente <br />
         <strong>tomar decisões</strong> sobre:
       </p>
 
-      <div className="grid w-full grid-cols-2 gap-2 text-foreground">
-        <ul className="list-inside list-disc">
-          <li>Requisitos</li>
-          <li>Usuários</li>
-          <li>Dados</li>
-          <li>Segurança</li>
-          <li>Infraestrutura</li>
-          <li>Escalabilidade</li>
-          <li>Manutenção</li>
-          <li>Implantação</li>
-          <li>...</li>
-        </ul>
-        <div></div>
+      <div className="mx-auto grid w-1/2 grid-cols-2 gap-2 text-2xl text-foreground">
+        <div className="col-span-1 flex flex-col gap-2 text-center">
+          <span>Requisitos</span>
+          <span>Usuários</span>
+          <span>Dados</span>
+          <span>Segurança</span>
+        </div>
+        <div className="col-span-1 flex flex-col gap-2 text-center">
+          <span>Infraestrutura</span>
+          <span>Escalabilidade</span>
+          <span>Manutenção</span>
+          <span>Implantação</span>
+        </div>
+        <div className="col-span-2 text-center">
+          <span>...</span>
+        </div>
       </div>
     </Slide>
   )

@@ -5,3 +5,14 @@ Olá pessoal, meu nome é Henrique Ângelo.
 Sobre a apresentação:
 
 Boa noite pessoal, hoje estou aqui para falar sobre arquitetura de software.
+
+
+
+
+
+Matemática
+
+O conceito mais importante: Valor Esperado
+
+o valor esperado é uma média ponderada dos resultados possíveis.
+Se repetirmos uma aposta muitas vezes, qual é o resultado esperado?

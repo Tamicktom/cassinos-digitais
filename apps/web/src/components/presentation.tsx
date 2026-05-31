@@ -1,7 +1,6 @@
 //* Libraries imports
 import { Deck } from "@revealjs/react"
 import "reveal.js/reveal.css"
-import RevealMath from "reveal.js/plugin/math"
 
 //* Components imports
 import { Part1 } from "@/slides/part-1"
@@ -16,7 +15,6 @@ export function Presentation() {
       config={{
         transition: "slide",
       }}
-      plugins={[RevealMath.KaTeX]}
       onSlideChange={(props) => {
         console.log(props)
       }}
