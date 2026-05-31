@@ -1,8 +1,12 @@
 export {
   calculateTheoreticalRtp,
+  getAllReelCombinations,
   getOutcomeProbabilities,
 } from "./calculate-theoretical-rtp"
-export type { OutcomeProbability } from "./calculate-theoretical-rtp"
+export type {
+  OutcomeProbability,
+  ReelCombination,
+} from "./calculate-theoretical-rtp"
 export {
   BET_AMOUNT,
   INITIAL_BALANCE,

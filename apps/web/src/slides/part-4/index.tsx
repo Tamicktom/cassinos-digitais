@@ -5,6 +5,7 @@ import { Stack } from "@revealjs/react"
 import { Slide } from "@/components/slide"
 import { SlotMachine } from "@/components/slot-machine"
 import { PaytableTable } from "@/components/slot-machine/paytable-table"
+import { CombinationsTable } from "@/components/slot-machine/combinations-table"
 
 export function Part4() {
   return (
@@ -19,9 +20,10 @@ export function Part4() {
           <h2>Simulação de caça-níqueis</h2>
         </Slide>
         <Slide className="h-[65svh]">
-          <div>
           <PaytableTable />
-          </div>
+        </Slide>
+        <Slide className="h-[70svh]">
+          <CombinationsTable />
         </Slide>
         <Slide className="h-[65svh]">
           <SlotMachine />

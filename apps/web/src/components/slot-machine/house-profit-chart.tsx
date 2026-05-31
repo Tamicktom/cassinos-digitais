@@ -42,6 +42,8 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
   const chartData =
     props.history.length > 0 ? props.history : [{ spin: 0, houseProfit: 0 }]
 
+console.log(chartData)
+
   return (
     <Card className="h-full">
       <CardHeader>
@@ -76,8 +78,10 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
             <XAxis
               axisLine={false}
               dataKey="spin"
+              interval="preserveStartEnd"
               tickLine={false}
               tickMargin={8}
+              type="category"
             />
             <YAxis
               axisLine={false}
@@ -98,7 +102,7 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
               dataKey="houseProfit"
               dot={false}
               strokeWidth={2}
-              type="monotone"
+              type="linear"
               stroke="var(--color-chart-1)"
             />
           </LineChart>

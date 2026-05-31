@@ -20,6 +20,18 @@ import type {
   SpinResult,
 } from "@/lib/slot-machine/types"
 
+type SpinStats = {
+  spinCount: number
+  houseProfit: number
+  history: HouseProfitPoint[]
+}
+
+const INITIAL_SPIN_STATS: SpinStats = {
+  spinCount: 0,
+  houseProfit: 0,
+  history: [],
+}
+
 export function useSlotMachine() {
   const [balance, setBalance] = useState(INITIAL_BALANCE)
   const [isSpinning, setIsSpinning] = useState(false)
@@ -27,12 +39,12 @@ export function useSlotMachine() {
   const [isAutoMode, setIsAutoMode] = useState(false)
   const [displayReels, setDisplayReels] = useState<SlotSymbol[]>(INITIAL_REELS)
   const [lastPayout, setLastPayout] = useState(0)
-  const [spinCount, setSpinCount] = useState(0)
-  const [houseProfit, setHouseProfit] = useState(0)
-  const [history, setHistory] = useState<HouseProfitPoint[]>([])
+  const [spinStats, setSpinStats] = useState<SpinStats>(INITIAL_SPIN_STATS)
   const [lastResult, setLastResult] = useState<SpinResult | null>(null)
   const spinTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const spinInFlightRef = useRef(false)
   const isTurboRef = useRef(isTurbo)
+  const spinRef = useRef<() => void>(() => {})
 
   const theoreticalRtp = useMemo(() => calculateTheoreticalRtp(SLOT_CONFIG), [])
 
@@ -50,8 +62,29 @@ export function useSlotMachine() {
     }
   }, [])
 
+  const recordSpinResult = useCallback((result: SpinResult) => {
+    const profitDelta = BET_AMOUNT - result.payout
+
+    setSpinStats((current) => {
+      const nextSpinCount = current.spinCount + 1
+      const nextHouseProfit = current.houseProfit + profitDelta
+
+      return {
+        spinCount: nextSpinCount,
+        houseProfit: nextHouseProfit,
+        history: [
+          ...current.history,
+          {
+            spin: nextSpinCount,
+            houseProfit: nextHouseProfit,
+          },
+        ],
+      }
+    })
+  }, [])
+
   const spin = useCallback(() => {
-    if (isSpinning || balance < BET_AMOUNT) {
+    if (spinInFlightRef.current || isSpinning || balance < BET_AMOUNT) {
       return
     }
 
@@ -64,6 +97,7 @@ export function useSlotMachine() {
       ? SPIN_DURATION_TURBO_MS
       : SPIN_DURATION_MS
 
+    spinInFlightRef.current = true
     setIsSpinning(true)
     setBalance((currentBalance) => currentBalance - BET_AMOUNT)
     setLastPayout(0)
@@ -73,38 +107,22 @@ export function useSlotMachine() {
       setBalance((currentBalance) => currentBalance + result.payout)
       setLastPayout(result.payout)
       setLastResult(result)
-      setSpinCount((currentSpinCount) => {
-        const nextSpinCount = currentSpinCount + 1
-        const profitDelta = BET_AMOUNT - result.payout
-
-        setHouseProfit((currentHouseProfit) => {
-          const nextHouseProfit = currentHouseProfit + profitDelta
-
-          setHistory((currentHistory) => [
-            ...currentHistory,
-            {
-              spin: nextSpinCount,
-              houseProfit: nextHouseProfit,
-            },
-          ])
-
-          return nextHouseProfit
-        })
-
-        return nextSpinCount
-      })
+      recordSpinResult(result)
+      spinInFlightRef.current = false
       setIsSpinning(false)
       spinTimeoutRef.current = null
     }, spinDurationMs)
-  }, [balance, isSpinning])
+  }, [balance, isSpinning, recordSpinResult])
+
+  spinRef.current = spin
 
   useEffect(() => {
     if (!isAutoMode || isSpinning || balance < BET_AMOUNT) {
       return
     }
 
-    spin()
-  }, [balance, isAutoMode, isSpinning, spin])
+    spinRef.current()
+  }, [balance, isAutoMode, isSpinning])
 
   const toggleTurbo = useCallback(() => {
     setIsTurbo((currentIsTurbo) => !currentIsTurbo)
@@ -120,14 +138,13 @@ export function useSlotMachine() {
       spinTimeoutRef.current = null
     }
 
+    spinInFlightRef.current = false
     setIsAutoMode(false)
     setBalance(INITIAL_BALANCE)
     setIsSpinning(false)
     setDisplayReels(INITIAL_REELS)
     setLastPayout(0)
-    setSpinCount(0)
-    setHouseProfit(0)
-    setHistory([])
+    setSpinStats(INITIAL_SPIN_STATS)
     setLastResult(null)
   }, [])
 
@@ -135,8 +152,8 @@ export function useSlotMachine() {
     balance,
     canSpin,
     displayReels,
-    history,
-    houseProfit,
+    history: spinStats.history,
+    houseProfit: spinStats.houseProfit,
     isAutoMode,
     isSpinning,
     isTurbo,
@@ -144,7 +161,7 @@ export function useSlotMachine() {
     lastResult,
     reset,
     spin,
-    spinCount,
+    spinCount: spinStats.spinCount,
     theoreticalRtp,
     toggleAutoMode,
     toggleTurbo,

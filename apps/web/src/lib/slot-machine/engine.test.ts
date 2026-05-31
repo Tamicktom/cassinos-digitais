@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest"
 //* Utils imports
 import {
   calculateTheoreticalRtp,
+  getAllReelCombinations,
   getOutcomeProbabilities,
 } from "./calculate-theoretical-rtp"
 import { SLOT_CONFIG } from "./config"
@@ -62,6 +63,32 @@ describe("slot machine engine", () => {
     const secondSpin = spin(createSeededRng(42), SLOT_CONFIG)
 
     expect(firstSpin).toEqual(secondSpin)
+  })
+
+  it("enumerates all reel combinations with probabilities that sum to 1", () => {
+    const combinations = getAllReelCombinations(SLOT_CONFIG)
+    const totalProbability = combinations.reduce(
+      (total, combination) => total + combination.probability,
+      0
+    )
+    const cherryTriple = combinations.find(
+      (combination) =>
+        combination.reels[0] === "cherry" &&
+        combination.reels[1] === "cherry" &&
+        combination.reels[2] === "cherry"
+    )
+    const cherryLemonCherry = combinations.find(
+      (combination) =>
+        combination.reels[0] === "cherry" &&
+        combination.reels[1] === "lemon" &&
+        combination.reels[2] === "cherry"
+    )
+
+    expect(combinations).toHaveLength(125)
+    expect(totalProbability).toBeCloseTo(1, 4)
+    expect(cherryTriple?.payout).toBe(2)
+    expect(cherryTriple?.probability).toBeCloseTo(Math.pow(776 / 1000, 3), 4)
+    expect(cherryLemonCherry?.payout).toBe(0)
   })
 
   it("resolves payouts for winning and losing combinations", () => {

@@ -1,8 +1,18 @@
 //* Types imports
 import type { SlotConfig, SlotSymbol } from "./types"
+import { SLOT_SYMBOLS } from "./types"
+
+//* Utils imports
+import { resolvePayout } from "./resolve-payout"
 
 export type OutcomeProbability = {
   symbol: SlotSymbol
+  payout: number
+  probability: number
+}
+
+export type ReelCombination = {
+  reels: SlotSymbol[]
   payout: number
   probability: number
 }
@@ -31,6 +41,38 @@ function getMatchProbability(
   return reelProbabilities.reduce((product, probabilities) => {
     return product * (probabilities.get(symbol) ?? 0)
   }, 1)
+}
+
+function getCombinationProbability(
+  reels: SlotSymbol[],
+  reelProbabilities: Map<SlotSymbol, number>[]
+) {
+  return reels.reduce((product, symbol, index) => {
+    return product * (reelProbabilities[index]?.get(symbol) ?? 0)
+  }, 1)
+}
+
+export function getAllReelCombinations(
+  config: SlotConfig
+): ReelCombination[] {
+  const reelProbabilities = config.strips.map(getSymbolProbabilities)
+  const combinations: ReelCombination[] = []
+
+  for (const firstSymbol of SLOT_SYMBOLS) {
+    for (const secondSymbol of SLOT_SYMBOLS) {
+      for (const thirdSymbol of SLOT_SYMBOLS) {
+        const reels: SlotSymbol[] = [firstSymbol, secondSymbol, thirdSymbol]
+
+        combinations.push({
+          reels,
+          payout: resolvePayout(reels, config.paytable),
+          probability: getCombinationProbability(reels, reelProbabilities),
+        })
+      }
+    }
+  }
+
+  return combinations
 }
 
 export function getOutcomeProbabilities(
