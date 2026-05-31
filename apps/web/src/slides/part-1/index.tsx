@@ -36,23 +36,23 @@ function DisclaimerSlide() {
   )
 }
 
+function WhyIsAProblemSlide() {
+  return (
+    <Slide>
+      <h2>Por que isso é um problema?</h2>
+    </Slide>
+  )
+}
+
 function AboutPresentationSlide() {
   return (
     <Slide>
-      <h2 className="font-grand-casino text-4xl font-bold text-primary">
+      <h2 className="font-grand-casino text-7xl font-bold text-white">
         Sobre a Apresentação
       </h2>
       <p className="text-2xl">
         O que é arquitetura de software? O que é engenharia de software?
       </p>
-    </Slide>
-  )
-}
-
-function WhyIsAProblemSlide() {
-  return (
-    <Slide>
-      <h2>Por que isso é um problema?</h2>
     </Slide>
   )
 }
