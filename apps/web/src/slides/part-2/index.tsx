@@ -4,6 +4,7 @@ import { Stack } from "@revealjs/react"
 //* Components imports
 import { Slide } from "@/components/slide"
 import { Requiriments } from "./requirements"
+import Table from "@workspace/ui/components/table"
 
 export function Part2() {
   return (
@@ -15,6 +16,8 @@ export function Part2() {
       </Slide>
       <AboutArchitecture />
       <Requiriments />
+      <FullVision />
+      <TheMoneyProblem />
     </>
   )
 }
@@ -46,4 +49,66 @@ function AboutArchitecture() {
       </div>
     </Slide>
   )
+}
+
+function FullVision(){
+  return (
+    <Slide>
+      <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+        Visão geral da arquitetura
+      </h2>
+      <div className="w-full flex justify-center items-center">
+        <img src="/assets/arquitetura.svg" alt="Visão geral da arquitetura" className="w-2/3" />
+      </div>
+    </Slide>
+  );
+}
+
+function TheMoneyProblem() {
+  return (
+    <Stack>
+      <Slide>
+        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+          O problema do dinheiro
+        </h2>
+        <div>
+          <Table.Root>
+            <Table.Header>
+              <Table.Row>
+                <Table.Head></Table.Head>
+              </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+              <Table.Row></Table.Row>
+            </Table.Body>
+          </Table.Root>
+        </div>
+      </Slide>
+
+      <Slide>
+        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+          Exemplo ruim
+        </h2>
+        <div className="w-full flex justify-center items-center">
+        <img src="/assets/bad-database.svg" 
+        alt="Diagrama do banco" 
+        className="w-1/2" 
+        data-preview-image="/assets/bad-database.svg" />
+      </div>
+      </Slide>
+
+      <Slide>
+        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+          Exemplo bom
+        </h2>
+        <div className="w-full flex justify-center items-center">
+        <img src="/assets/diagrama-do-banco.svg" 
+        alt="Diagrama do banco" 
+        className="w-2/3" 
+        data-preview-image="/assets/diagrama-do-banco.svg" />
+      </div>
+      </Slide>
+    </Stack>
+  );
 }
