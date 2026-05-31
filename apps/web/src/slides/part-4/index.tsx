@@ -16,7 +16,6 @@ export function Part4() {
           <h2>Matemática</h2>
         </Slide>
 
-
         <Slide className="h-[65svh]">
           <h2>Simulação de caça-níqueis</h2>
         </Slide>

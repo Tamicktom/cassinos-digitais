@@ -47,18 +47,17 @@ function SymbolCell(props: { symbol: SlotSymbol }) {
 }
 
 export function CombinationsTable() {
-  const combinations = useMemo(
-    () => getAllReelCombinations(SLOT_CONFIG),
-    []
-  )
+  const combinations = useMemo(() => getAllReelCombinations(SLOT_CONFIG), [])
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-5xl font-grand-casino">Combinações</CardTitle>
-        <CardDescription className="text-neutral-600 text-lg">
-          Todas as combinações possíveis dos 3 rolos, com prêmio e
-          probabilidade de cada uma.
+        <CardTitle className="font-grand-casino text-5xl">
+          Combinações
+        </CardTitle>
+        <CardDescription className="text-lg text-neutral-600">
+          Todas as combinações possíveis dos 3 rolos, com prêmio e probabilidade
+          de cada uma.
         </CardDescription>
       </CardHeader>
       <CardContent>

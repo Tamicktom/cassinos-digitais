@@ -52,9 +52,7 @@ function getCombinationProbability(
   }, 1)
 }
 
-export function getAllReelCombinations(
-  config: SlotConfig
-): ReelCombination[] {
+export function getAllReelCombinations(config: SlotConfig): ReelCombination[] {
   const reelProbabilities = config.strips.map(getSymbolProbabilities)
   const combinations: ReelCombination[] = []
 

@@ -48,9 +48,8 @@ export function useCrash() {
   const [lastCashoutMultiplier, setLastCashoutMultiplier] = useState<
     number | null
   >(null)
-  const [autoCashoutMultiplier, setAutoCashoutMultiplier] = useState(
-    DEFAULT_AUTO_CASHOUT
-  )
+  const [autoCashoutMultiplier, setAutoCashoutMultiplier] =
+    useState(DEFAULT_AUTO_CASHOUT)
   const [isTurbo, setIsTurbo] = useState(false)
   const [isAutoMode, setIsAutoMode] = useState(false)
   const [roundStats, setRoundStats] = useState<RoundStats>(INITIAL_ROUND_STATS)
@@ -192,8 +191,7 @@ export function useCrash() {
         ? MULTIPLIER_GROWTH_TURBO_PER_SEC
         : MULTIPLIER_GROWTH_PER_SEC
       const nextMultiplier = roundMultiplier(
-        currentMultiplierRef.current +
-          growthPerSec * (ROUND_TICK_MS / 1000)
+        currentMultiplierRef.current + growthPerSec * (ROUND_TICK_MS / 1000)
       )
       const targetCrashPoint = crashPointRef.current
       const targetAutoCashout = autoCashoutRef.current

@@ -8,16 +8,61 @@ import {
 } from "@workspace/ui/components/chart"
 
 const chartData = [
-  { country: "EUA*", revenue: 17.31, label: "17,31", fill: "var(--color-default)" },
-  { country: "Reino Unido", revenue: 9.9, label: "9,9", fill: "var(--color-default)" },
-  { country: "Itália", revenue: 4.62, label: "4,62", fill: "var(--color-default)" },
-  { country: "Rússia", revenue: 4.51, label: "4,51", fill: "var(--color-default)" },
-  { country: "Brasil", revenue: 4.14, label: "4,14", fill: "var(--color-highlight)" },
-  { country: "Austrália", revenue: 3.66, label: "3,66", fill: "var(--color-default)" },
+  {
+    country: "EUA*",
+    revenue: 17.31,
+    label: "17,31",
+    fill: "var(--color-default)",
+  },
+  {
+    country: "Reino Unido",
+    revenue: 9.9,
+    label: "9,9",
+    fill: "var(--color-default)",
+  },
+  {
+    country: "Itália",
+    revenue: 4.62,
+    label: "4,62",
+    fill: "var(--color-default)",
+  },
+  {
+    country: "Rússia",
+    revenue: 4.51,
+    label: "4,51",
+    fill: "var(--color-default)",
+  },
+  {
+    country: "Brasil",
+    revenue: 4.14,
+    label: "4,14",
+    fill: "var(--color-highlight)",
+  },
+  {
+    country: "Austrália",
+    revenue: 3.66,
+    label: "3,66",
+    fill: "var(--color-default)",
+  },
   { country: "Canadá", revenue: 3, label: "3", fill: "var(--color-default)" },
-  { country: "França", revenue: 2.89, label: "2,89", fill: "var(--color-default)" },
-  { country: "África do Sul", revenue: 2.52, label: "2,52", fill: "var(--color-default)" },
-  { country: "Alemanha", revenue: 1.9, label: "1,9", fill: "var(--color-default)" },
+  {
+    country: "França",
+    revenue: 2.89,
+    label: "2,89",
+    fill: "var(--color-default)",
+  },
+  {
+    country: "África do Sul",
+    revenue: 2.52,
+    label: "2,52",
+    fill: "var(--color-default)",
+  },
+  {
+    country: "Alemanha",
+    revenue: 1.9,
+    label: "1,9",
+    fill: "var(--color-default)",
+  },
 ]
 
 const chartConfig = {

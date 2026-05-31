@@ -42,7 +42,7 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
   const chartData =
     props.history.length > 0 ? props.history : [{ spin: 0, houseProfit: 0 }]
 
-console.log(chartData)
+  console.log(chartData)
 
   return (
     <Card className="h-full">
