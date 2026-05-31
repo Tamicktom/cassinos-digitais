@@ -6,6 +6,7 @@ import { Slide } from "@/components/slide"
 import { SlotMachine } from "@/components/slot-machine"
 import { PaytableTable } from "@/components/slot-machine/paytable-table"
 import { CombinationsTable } from "@/components/slot-machine/combinations-table"
+import { Crash } from "@/components/crash"
 
 export function Part4() {
   return (
@@ -27,6 +28,9 @@ export function Part4() {
         </Slide>
         <Slide className="h-[65svh]">
           <SlotMachine />
+        </Slide>
+        <Slide className="h-[65svh]">
+          <Crash />
         </Slide>
       </Stack>
     </>
