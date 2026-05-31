@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SlotMachineRouteImport } from './routes/slot-machine'
+import { Route as CrashRouteImport } from './routes/crash'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SlotMachineRoute = SlotMachineRouteImport.update({
   id: '/slot-machine',
   path: '/slot-machine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrashRoute = CrashRouteImport.update({
+  id: '/crash',
+  path: '/crash',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/crash': typeof CrashRoute
   '/slot-machine': typeof SlotMachineRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/crash': typeof CrashRoute
   '/slot-machine': typeof SlotMachineRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/crash': typeof CrashRoute
   '/slot-machine': typeof SlotMachineRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/slot-machine'
+  fullPaths: '/' | '/crash' | '/slot-machine'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/slot-machine'
-  id: '__root__' | '/' | '/slot-machine'
+  to: '/' | '/crash' | '/slot-machine'
+  id: '__root__' | '/' | '/crash' | '/slot-machine'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CrashRoute: typeof CrashRoute
   SlotMachineRoute: typeof SlotMachineRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/slot-machine'
       fullPath: '/slot-machine'
       preLoaderRoute: typeof SlotMachineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crash': {
+      id: '/crash'
+      path: '/crash'
+      fullPath: '/crash'
+      preLoaderRoute: typeof CrashRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CrashRoute: CrashRoute,
   SlotMachineRoute: SlotMachineRoute,
 }
 export const routeTree = rootRouteImport
