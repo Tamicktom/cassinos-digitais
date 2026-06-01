@@ -114,6 +114,19 @@ function TheMoneyProblem() {
   );
 }
 
+const GAME_PROVIDER_LOGOS = [
+  { name: "Evolution", src: "/assets/logos_fornecedores_cassino_online/evolution.svg" },
+  { name: "Pragmatic Play", src: "/assets/logos_fornecedores_cassino_online/pragmatic_play.svg" },
+  { name: "NetEnt", src: "/assets/logos_fornecedores_cassino_online/netent.png" },
+  { name: "Microgaming", src: "/assets/logos_fornecedores_cassino_online/microgaming.svg" },
+  { name: "Playtech", src: "/assets/logos_fornecedores_cassino_online/playtech.png" },
+  { name: "Play'n GO", src: "/assets/logos_fornecedores_cassino_online/playngo.png" },
+  { name: "Red Tiger", src: "/assets/logos_fornecedores_cassino_online/red_tiger.png" },
+  { name: "Yggdrasil", src: "/assets/logos_fornecedores_cassino_online/yggdrasil.png" },
+  { name: "Nolimit City", src: "/assets/logos_fornecedores_cassino_online/nolimit_city.png" },
+  { name: "Hacksaw Gaming", src: "/assets/logos_fornecedores_cassino_online/hacksaw_gaming.png" },
+] as const
+
 function Games() {
   return (
     <Stack>
@@ -122,17 +135,31 @@ function Games() {
           Jogos
         </h2>
         <div className="w-full flex justify-center items-center">
-        <span>
+        <span className="text-2xl text-white">
           Normalmente os jogos são criados por terceiros.
         </span>
         </div>
       </Slide>
+
       <Slide>
         <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
           Algumas empresas de jogos...
         </h2>
-        <div className="w-full flex justify-center items-center">
-        
+        <div className="w-full grid grid-cols-4 gap-4">
+          {GAME_PROVIDER_LOGOS.map(function (logo) {
+            return (
+              <div
+                key={logo.src}
+                className="flex h-24 items-center justify-center rounded-lg bg-white/10 p-4"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            )
+          })}
         </div>
       </Slide>
     </Stack>
