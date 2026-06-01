@@ -177,6 +177,50 @@ export function Part4() {
             </Table.Root>
           </div>
         </Slide>
+
+        <Slide>
+          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+            RGN: aleatório não significa justo
+          </h2>
+          <p className="text-2xl text-white">
+            Um resultado aleatório pode fazer parte de um jogo matematicamente desfavorável.
+          </p>
+        </Slide>
+
+        <Slide>
+          <Table.Root>
+            <Table.Header>
+              <Table.Row>
+                <Table.Head className="w-32 text-center text-white">Faixa sorteada</Table.Head>
+                <Table.Head className="w-32 text-center text-white">Probabilidade</Table.Head>
+                <Table.Head className="w-32 text-center text-white">Pagamento ao jogador</Table.Head>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell className="text-center">1 a 60</Table.Cell>
+                <Table.Cell className="text-center">60%</Table.Cell>
+                <Table.Cell className="text-center">R$ 0</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell className="text-center">61 a 90</Table.Cell>
+                <Table.Cell className="text-center">30%</Table.Cell>
+                <Table.Cell className="text-center">R$ 5</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell className="text-center">91 a 99</Table.Cell>
+                <Table.Cell className="text-center">9%</Table.Cell>
+                <Table.Cell className="text-center">R$ 20</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell className="text-center">100</Table.Cell>
+                <Table.Cell className="text-center">1%</Table.Cell>
+                <Table.Cell className="text-center">R$ 100</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table.Root>
+        </Slide>
+
       </Stack>
     </>
   )

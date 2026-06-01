@@ -46,6 +46,19 @@ export function Part3() {
         />
         </div>
       </Slide>
+
+      <Slide>
+        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+          O Ciclo da Aposta
+        </h2>
+        <div className="w-full flex justify-center items-center">
+        <img
+          src="/assets/fluxo.svg"
+          alt="O Ciclo da Aposta"
+          className="w-full rounded-lg border"
+        />
+        </div>
+      </Slide>
       </Stack>
     </>
   )
