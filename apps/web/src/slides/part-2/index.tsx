@@ -131,11 +131,11 @@ function Games() {
   return (
     <Stack>
       <Slide>
-        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+        <h2 className="font-grand-casino text-7xl font-bold text-white pb-8">
           Jogos
         </h2>
         <div className="w-full flex justify-center items-center">
-        <span className="text-2xl text-white">
+        <span className="text-2xl text-white font-bold">
           Normalmente os jogos são criados por terceiros.
         </span>
         </div>
