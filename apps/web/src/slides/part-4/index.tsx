@@ -1,5 +1,5 @@
 //* Libraries imports
-import { Stack, Fragment } from "@revealjs/react"
+import { Stack } from "@revealjs/react"
 
 //* Components imports
 import { Slide } from "@/components/slide"
