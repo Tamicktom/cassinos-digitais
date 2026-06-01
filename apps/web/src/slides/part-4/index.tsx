@@ -15,6 +15,12 @@ export function Part4() {
         </Slide>
 
         <Slide>
+          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+            Lei dos grandes números
+          </h2>
+        </Slide>
+
+        <Slide>
           <h2 className="font-grand-casino text-5xl">Expected Value</h2>
           <div className="grid w-full grid-cols-2 gap-4">
             <div className="flex flex-col gap-2">

@@ -18,6 +18,7 @@ export function Part2() {
       <Requiriments />
       <FullVision />
       <TheMoneyProblem />
+      <Games />
     </>
   )
 }
@@ -108,6 +109,31 @@ function TheMoneyProblem() {
         className="w-2/3" 
         data-preview-image="/assets/diagrama-do-banco.svg" />
       </div>
+      </Slide>
+    </Stack>
+  );
+}
+
+function Games() {
+  return (
+    <Stack>
+      <Slide>
+        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+          Jogos
+        </h2>
+        <div className="w-full flex justify-center items-center">
+        <span>
+          Normalmente os jogos são criados por terceiros.
+        </span>
+        </div>
+      </Slide>
+      <Slide>
+        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+          Algumas empresas de jogos...
+        </h2>
+        <div className="w-full flex justify-center items-center">
+        
+        </div>
       </Slide>
     </Stack>
   );
