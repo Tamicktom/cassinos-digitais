@@ -1,9 +1,10 @@
 //* Libraries imports
-import { Stack, Fragment } from "@revealjs/react"
+import { Stack } from "@revealjs/react"
 
 //* Components imports
 import { Slide } from "@/components/slide"
 import { MathFormula } from "@/components/math-formula"
+import { LawOfLargeNumbersDemo } from "@/components/law-of-large-numbers"
 
 export function Part4() {
   return (
@@ -30,6 +31,13 @@ export function Part4() {
           <MathFormula className="pt-8 text-5xl text-white">
             {String.raw`\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i \xrightarrow{n \to \infty} E[X]`}
           </MathFormula>
+        </Slide>
+
+        <Slide className="h-[70svh]">
+          <h2 className="font-grand-casino text-5xl font-bold text-white pb-4">
+            Lei dos grandes números
+          </h2>
+          <LawOfLargeNumbersDemo />
         </Slide>
 
         <Slide>
