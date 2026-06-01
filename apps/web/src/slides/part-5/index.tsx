@@ -13,11 +13,11 @@ export function Part4() {
     <>
       <Stack>
         <Slide>
-          <h2>Simulações</h2>
+          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">Simulações</h2>
         </Slide>
 
         <Slide className="h-[65svh]">
-          <h2>Simulação de caça-níqueis</h2>
+          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">Simulação de caça-níqueis</h2>
         </Slide>
         <Slide className="h-[65svh]">
           <PaytableTable />

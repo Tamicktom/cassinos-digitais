@@ -68,16 +68,16 @@ export function Part4() {
             RTP e House Edge
           </h2>
           <div className="grid w-full grid-cols-2 gap-4">
-            <span className="text-lg font-bold text-white">
-            RPT = Return to Player (Retorno ao Jogador)
+            <span className="text-2xl font-bold text-white">
+            RPT = Return to Player <br /> (Retorno ao Jogador)
             </span>
-            <span className="text-lg font-bold text-white">
-              House Edge (Vantagem da Casa)
+            <span className="text-2xl font-bold text-white">
+              House Edge <br /> (Vantagem da Casa)
             </span>
           </div>
         </Slide>
 
-        <Slide className="h-[70svh]">
+        <Slide>
           <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
             RTP e House Edge
           </h2>
@@ -120,6 +120,50 @@ export function Part4() {
                   <Table.Cell className="w-48 max-w-48 whitespace-normal text-left">
                     A cada R$ 100 apostados, o retorno teórico é R$ 80.
                   </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table.Root>
+          </div>
+        </Slide>
+
+        <Slide>
+          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+            O "quase justo" ainda dá lucro
+          </h2>
+          <div className="w-full">
+            <Table.Root className="w-full table-fixed">
+              <Table.Header>
+                <Table.Row>
+                  <Table.Head className="w-32 text-center text-white">Total apostado <br /> no período</Table.Head>
+                  <Table.Head className="w-16 text-center text-white">RTP</Table.Head>
+                  <Table.Head className="w-32 text-center text-white">Retorno teórico <br /> aos jogadores</Table.Head>
+                  <Table.Head className="w-32 text-center text-white">Receita teórica <br /> da casa</Table.Head>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell className="text-center">R$ 10.000</Table.Cell>
+                  <Table.Cell className="text-center">96%</Table.Cell>
+                  <Table.Cell className="text-center">R$ 9.600</Table.Cell>
+                  <Table.Cell className="text-center">R$ 400</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="text-center">R$ 100.000</Table.Cell>
+                  <Table.Cell className="text-center">96%</Table.Cell>
+                  <Table.Cell className="text-center">R$ 96.000</Table.Cell>
+                  <Table.Cell className="text-center">R$ 4.000</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="text-center">R$ 1.000.000</Table.Cell>
+                  <Table.Cell className="text-center">96%</Table.Cell>
+                  <Table.Cell className="text-center">R$ 960.000</Table.Cell>
+                  <Table.Cell className="text-center">R$ 40.000</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="text-center">R$ 10.000.000</Table.Cell>
+                  <Table.Cell className="text-center">96%</Table.Cell>
+                  <Table.Cell className="text-center">R$ 9.600.000</Table.Cell>
+                  <Table.Cell className="text-center">R$ 400.000</Table.Cell>
                 </Table.Row>
               </Table.Body>
             </Table.Root>
