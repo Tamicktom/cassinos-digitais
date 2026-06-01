@@ -9,16 +9,22 @@ export function Part3() {
     <>
       <Stack>
       <Slide>
-        <h2>UI/UX</h2>
-      </Slide>
-
-      <Slide>
-        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+        <h2 className="font-grand-casino text-7xl font-bold text-white pb-4">
           Dark Patterns
         </h2>
-        <p>
-          Escolhas de design que induzem usuários a fazer algo que talvez não fariam se a informação estivesse clara.
+        <p className="text-2xl text-white">
+          Escolhas de design que induzem usuários a fazer algo <br /> que talvez não fariam se a informação estivesse clara.
         </p>
+      </Slide>
+
+      <Slide className="h-[65svh]">
+        <div className="w-full flex justify-center items-center">
+        <img
+          src="/assets/candy-rush.png"
+          alt="Dark Patterns 3"
+          className="w-full rounded-lg border"
+        />
+        </div>
       </Slide>
 
       <Slide className="h-[65svh]">
@@ -36,16 +42,6 @@ export function Part3() {
         <img
           src="/assets/spaceman.png"
           alt="Dark Patterns 2"
-          className="w-full rounded-lg border"
-        />
-        </div>
-      </Slide>
-
-      <Slide className="h-[65svh]">
-        <div className="w-full flex justify-center items-center">
-        <img
-          src="/assets/candy-rush.png"
-          alt="Dark Patterns 3"
           className="w-full rounded-lg border"
         />
         </div>
