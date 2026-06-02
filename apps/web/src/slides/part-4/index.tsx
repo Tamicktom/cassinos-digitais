@@ -4,6 +4,7 @@ import { Stack, Code } from "@revealjs/react"
 //* Components imports
 import { Slide } from "@/components/slide"
 import { MathFormula } from "@/components/math-formula"
+import { HouseEdgeSimulatorDemo } from "@/components/house-edge-simulator"
 import { LawOfLargeNumbersDemo } from "@/components/law-of-large-numbers"
 import Table from "@workspace/ui/components/table"
 
@@ -184,6 +185,13 @@ const resultado = mediaDeCaras(1000); // ~0.5`}
               </Table.Body>
             </Table.Root>
           </div>
+        </Slide>
+
+        <Slide className="h-[70svh]">
+          <h2 className="pb-4 font-grand-casino text-5xl font-bold text-white">
+            RTP e House Edge
+          </h2>
+          <HouseEdgeSimulatorDemo />
         </Slide>
 
         <Slide>

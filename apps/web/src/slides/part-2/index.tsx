@@ -76,19 +76,6 @@ function TheMoneyProblem() {
         <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
           O problema do dinheiro
         </h2>
-        <div>
-          <Table.Root>
-            <Table.Header>
-              <Table.Row>
-                <Table.Head></Table.Head>
-              </Table.Row>
-            </Table.Header>
-
-            <Table.Body>
-              <Table.Row></Table.Row>
-            </Table.Body>
-          </Table.Root>
-        </div>
       </Slide>
 
       <Slide>
