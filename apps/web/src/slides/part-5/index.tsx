@@ -26,17 +26,14 @@ export function Part5() {
         <Slide className="h-[65svh]">
           <PaytableTable />
         </Slide>
-        <Slide className="h-[70svh]">
-          <CombinationsTable />
-        </Slide>
-        <Slide className="h-[65svh]">
+        <Slide>
           <Link to="/slot-machine">
-            <Button>Slot Machine</Button>
+            <Button className="text-5xl h-fit p-4">Slot Machine</Button>
           </Link>
         </Slide>
-        <Slide className="h-[65svh]">
+        <Slide>
           <Link to="/crash">
-            <Button>Crash</Button>
+            <Button className="text-5xl h-fit p-4">Crash</Button>
           </Link>
         </Slide>
       </Stack>
