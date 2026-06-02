@@ -1,3 +1,6 @@
+//* Libraries imports
+import { SmileyIcon, CrownIcon } from "@phosphor-icons/react"
+
 //* Types imports
 import type { CoinOutcome } from "@/lib/law-of-large-numbers"
 
@@ -34,7 +37,7 @@ export function RecentOutcomes(props: RecentOutcomesProps) {
           )}
           title={getOutcomeLabel(outcome)}
         >
-          {outcome === 1 ? "Cara" : "Coroa"}
+          {outcome === 1 ? <SmileyIcon className="size-5" /> : <CrownIcon className="size-5" />}
         </span>
       ))}
     </div>
