@@ -42,36 +42,6 @@ export function Part4() {
         </Slide>
 
         <Slide>
-          <h2 className="font-grand-casino text-5xl">Expected Value</h2>
-          <div className="grid w-full grid-cols-2 gap-4">
-            <div className="flex flex-col gap-2">
-              <MathFormula className="text-5xl">
-                {String.raw`E(X) = \sum_{i=1}^{n} p_i \cdot x_i`}
-              </MathFormula>
-              <p className="text-lg font-bold text-white">
-                Média ponderada dos resultados possíveis.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 text-end">
-              <span className="flex items-center gap-2">
-                <MathFormula className="text-5xl">
-                  {String.raw`p_i`}
-                </MathFormula>
-                <p className="text-lg font-bold text-white">
-                  Probabilidade do resultado i.
-                </p>
-              </span>
-              <span className="flex items-center gap-2">
-                <MathFormula className="text-5xl">
-                  {String.raw`x_i`}
-                </MathFormula>
-                <p className="text-lg font-bold text-white">Resultado i.</p>
-              </span>
-            </div>
-          </div>
-        </Slide>
-
-        <Slide>
           <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
             RTP e House Edge
           </h2>
@@ -221,6 +191,14 @@ export function Part4() {
           </Table.Root>
         </Slide>
 
+        <Slide>
+          <h2 className="font-grand-casino text-7xl font-bold text-white pb-8">
+            Falácia de Monte Carlo
+          </h2>
+          <p className="text-2xl text-white">
+            (Falácia do apostador)
+          </p>
+        </Slide>
       </Stack>
     </>
   )
