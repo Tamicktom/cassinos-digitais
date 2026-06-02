@@ -1,6 +1,8 @@
 //* Libraries imports
 import { Deck } from "@revealjs/react"
 import "reveal.js/reveal.css"
+import 'reveal.js/plugin/highlight/monokai.css';
+import RevealHighlight from 'reveal.js/plugin/highlight';
 
 //* Components imports
 import { Part1 } from "@/slides/part-1"
@@ -15,6 +17,7 @@ export function Presentation() {
       config={{
         transition: "slide",
       }}
+      plugins={[RevealHighlight]}
       onSlideChange={(props) => {
         console.log(props)
       }}

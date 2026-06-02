@@ -1,5 +1,5 @@
 //* Libraries imports
-import { Stack } from "@revealjs/react"
+import { Stack, Code } from "@revealjs/react"
 
 //* Components imports
 import { Slide } from "@/components/slide"
@@ -32,6 +32,29 @@ export function Part4() {
           <MathFormula className="pt-8 text-5xl text-white">
             {String.raw`\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i \xrightarrow{n \to \infty} E[X]`}
           </MathFormula>
+        </Slide>
+
+        <Slide className="h-[65svh]">
+          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+            Lei dos grandes números
+          </h2>
+          <Code language="javascript" className="text-left text-lg">
+          {`function jogarMoeda(): number {
+  return Math.random() < 0.5 ? 1 : 0;
+}
+
+function mediaDeCaras(n: number): number {
+  let soma = 0;
+
+  for (let i = 0; i < n; i++) {
+    soma += jogarMoeda();
+  }
+
+  return soma / n;
+}
+
+const resultado = mediaDeCaras(1000); // ~0.5`}
+        </Code>
         </Slide>
 
         <Slide className="h-[70svh]">
