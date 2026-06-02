@@ -34,7 +34,7 @@ export function RecentOutcomes(props: RecentOutcomesProps) {
           )}
           title={getOutcomeLabel(outcome)}
         >
-          {outcome === 1 ? "C" : "R"}
+          {outcome === 1 ? "Cara" : "Coroa"}
         </span>
       ))}
     </div>
