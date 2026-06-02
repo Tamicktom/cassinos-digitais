@@ -42,7 +42,7 @@ export function RunningMeanChart(props: RunningMeanChartProps) {
     props.history.length > 0 ? props.history : [{ n: 0, sampleMean: 0 }]
 
   return (
-    <ChartContainer className="min-h-32 max-h-40 w-full" config={chartConfig}>
+    <ChartContainer className="max-h-40 min-h-32 w-full" config={chartConfig}>
       <LineChart
         data={chartData}
         margin={{ top: 8, right: 8, bottom: 0, left: 0 }}

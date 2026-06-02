@@ -1,23 +1,27 @@
 //* Libraries imports
 import { Stack } from "@revealjs/react"
+import { Link } from "@tanstack/react-router"
 
 //* Components imports
 import { Slide } from "@/components/slide"
-import { SlotMachine } from "@/components/slot-machine"
 import { PaytableTable } from "@/components/slot-machine/paytable-table"
 import { CombinationsTable } from "@/components/slot-machine/combinations-table"
-import { Crash } from "@/components/crash"
+import { Button } from "@workspace/ui/components/button"
 
-export function Part4() {
+export function Part5() {
   return (
     <>
       <Stack>
         <Slide>
-          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">Simulações</h2>
+          <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
+            Simulações
+          </h2>
         </Slide>
 
-        <Slide className="h-[65svh]">
-          <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">Simulação de caça-níqueis</h2>
+        <Slide>
+          <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
+            Simulação de caça-níqueis
+          </h2>
         </Slide>
         <Slide className="h-[65svh]">
           <PaytableTable />
@@ -26,10 +30,14 @@ export function Part4() {
           <CombinationsTable />
         </Slide>
         <Slide className="h-[65svh]">
-          <SlotMachine />
+          <Link to="/slot-machine">
+            <Button>Slot Machine</Button>
+          </Link>
         </Slide>
         <Slide className="h-[65svh]">
-          <Crash />
+          <Link to="/crash">
+            <Button>Crash</Button>
+          </Link>
         </Slide>
       </Stack>
     </>

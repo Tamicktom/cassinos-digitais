@@ -52,24 +52,28 @@ function AboutArchitecture() {
   )
 }
 
-function FullVision(){
+function FullVision() {
   return (
     <Slide>
-      <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+      <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
         Visão geral da arquitetura
       </h2>
-      <div className="w-full flex justify-center items-center">
-        <img src="/assets/arquitetura.svg" alt="Visão geral da arquitetura" className="w-2/3" />
+      <div className="flex w-full items-center justify-center">
+        <img
+          src="/assets/arquitetura.svg"
+          alt="Visão geral da arquitetura"
+          className="w-2/3"
+        />
       </div>
     </Slide>
-  );
+  )
 }
 
 function TheMoneyProblem() {
   return (
     <Stack>
       <Slide>
-        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+        <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
           O problema do dinheiro
         </h2>
         <div>
@@ -88,64 +92,98 @@ function TheMoneyProblem() {
       </Slide>
 
       <Slide>
-        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+        <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
           Exemplo ruim
         </h2>
-        <div className="w-full flex justify-center items-center">
-        <img src="/assets/bad-database.svg" 
-        alt="Diagrama do banco" 
-        className="w-1/2" 
-        data-preview-image="/assets/bad-database.svg" />
-      </div>
+        <div className="flex w-full items-center justify-center">
+          <img
+            src="/assets/bad-database.svg"
+            alt="Diagrama do banco"
+            className="w-1/2"
+            data-preview-image="/assets/bad-database.svg"
+          />
+        </div>
       </Slide>
 
       <Slide>
-        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+        <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
           Exemplo bom
         </h2>
-        <div className="w-full flex justify-center items-center">
-        <img src="/assets/diagrama-do-banco.svg" 
-        alt="Diagrama do banco" 
-        className="w-2/3" 
-        data-preview-image="/assets/diagrama-do-banco.svg" />
-      </div>
+        <div className="flex w-full items-center justify-center">
+          <img
+            src="/assets/diagrama-do-banco.svg"
+            alt="Diagrama do banco"
+            className="w-2/3"
+            data-preview-image="/assets/diagrama-do-banco.svg"
+          />
+        </div>
       </Slide>
     </Stack>
-  );
+  )
 }
 
 const GAME_PROVIDER_LOGOS = [
-  { name: "Evolution", src: "/assets/logos_fornecedores_cassino_online/evolution.svg" },
-  { name: "Pragmatic Play", src: "/assets/logos_fornecedores_cassino_online/pragmatic_play.svg" },
-  { name: "NetEnt", src: "/assets/logos_fornecedores_cassino_online/netent.png" },
-  { name: "Microgaming", src: "/assets/logos_fornecedores_cassino_online/microgaming.svg" },
-  { name: "Playtech", src: "/assets/logos_fornecedores_cassino_online/playtech.png" },
-  { name: "Play'n GO", src: "/assets/logos_fornecedores_cassino_online/playngo.png" },
-  { name: "Red Tiger", src: "/assets/logos_fornecedores_cassino_online/red_tiger.png" },
-  { name: "Yggdrasil", src: "/assets/logos_fornecedores_cassino_online/yggdrasil.png" },
-  { name: "Nolimit City", src: "/assets/logos_fornecedores_cassino_online/nolimit_city.png" },
-  { name: "Hacksaw Gaming", src: "/assets/logos_fornecedores_cassino_online/hacksaw_gaming.png" },
+  {
+    name: "Evolution",
+    src: "/assets/logos_fornecedores_cassino_online/evolution.svg",
+  },
+  {
+    name: "Pragmatic Play",
+    src: "/assets/logos_fornecedores_cassino_online/pragmatic_play.svg",
+  },
+  {
+    name: "NetEnt",
+    src: "/assets/logos_fornecedores_cassino_online/netent.png",
+  },
+  {
+    name: "Microgaming",
+    src: "/assets/logos_fornecedores_cassino_online/microgaming.svg",
+  },
+  {
+    name: "Playtech",
+    src: "/assets/logos_fornecedores_cassino_online/playtech.png",
+  },
+  {
+    name: "Play'n GO",
+    src: "/assets/logos_fornecedores_cassino_online/playngo.png",
+  },
+  {
+    name: "Red Tiger",
+    src: "/assets/logos_fornecedores_cassino_online/red_tiger.png",
+  },
+  {
+    name: "Yggdrasil",
+    src: "/assets/logos_fornecedores_cassino_online/yggdrasil.png",
+  },
+  {
+    name: "Nolimit City",
+    src: "/assets/logos_fornecedores_cassino_online/nolimit_city.png",
+  },
+  {
+    name: "Hacksaw Gaming",
+    src: "/assets/logos_fornecedores_cassino_online/hacksaw_gaming.png",
+  },
 ] as const
 
 function Games() {
   return (
     <Stack>
       <Slide>
-        <h2 className="font-grand-casino text-7xl font-bold text-white pb-8">
+        <h2 className="pb-8 font-grand-casino text-7xl font-bold text-white">
           Jogos
         </h2>
-        <div className="w-full flex justify-center items-center">
-        <span className="text-2xl text-white font-bold">
-          Normalmente os jogos são criados por terceiros.
-        </span>
+        <div className="flex w-full items-center justify-center">
+          <span className="text-2xl font-bold text-white">
+            Normalmente os jogos são criados por terceiros.
+          </span>
         </div>
       </Slide>
 
       <Slide>
-        <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+        <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
           Algumas empresas de jogos...
         </h2>
-        <div className="w-full grid grid-cols-4 gap-4">
+        <div className="grid w-full grid-cols-4 gap-4">
           {GAME_PROVIDER_LOGOS.map(function (logo) {
             return (
               <div
@@ -163,5 +201,5 @@ function Games() {
         </div>
       </Slide>
     </Stack>
-  );
+  )
 }

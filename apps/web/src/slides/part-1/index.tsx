@@ -40,12 +40,18 @@ const CASINO_COMPANY_LOGOS = [
   { name: "Bet7k", src: "/assets/cassinos_brasil_logos/bet_7k.png" },
   { name: "Betano", src: "/assets/cassinos_brasil_logos/betano.png" },
   { name: "Betboom", src: "/assets/cassinos_brasil_logos/betboom.png" },
-  { name: "Bet da Sorte", src: "/assets/cassinos_brasil_logos/bet_da_sorte.png" },
+  {
+    name: "Bet da Sorte",
+    src: "/assets/cassinos_brasil_logos/bet_da_sorte.png",
+  },
   { name: "Betfair", src: "/assets/cassinos_brasil_logos/betfair.png" },
   { name: "BetMGM", src: "/assets/cassinos_brasil_logos/betmgm.png" },
   { name: "Betnacional", src: "/assets/cassinos_brasil_logos/betnacional.png" },
   { name: "Blaze", src: "/assets/cassinos_brasil_logos/blaze.png" },
-  { name: "Esportes da Sorte", src: "/assets/cassinos_brasil_logos/esportes_da_sorte.png" },
+  {
+    name: "Esportes da Sorte",
+    src: "/assets/cassinos_brasil_logos/esportes_da_sorte.png",
+  },
   { name: "KTO", src: "/assets/cassinos_brasil_logos/kto.png" },
   { name: "Multibet", src: "/assets/cassinos_brasil_logos/multibet.png" },
   { name: "Novibet", src: "/assets/cassinos_brasil_logos/novibet.png" },
@@ -58,7 +64,7 @@ const CASINO_COMPANY_LOGOS = [
 function SomeDigitalCasinoCompanies() {
   return (
     <Slide>
-      <h2 className="font-grand-casino text-5xl font-bold text-white pb-8">
+      <h2 className="pb-8 font-grand-casino text-5xl font-bold text-white">
         Algumas empresas de cassinos digitais...
       </h2>
       <div className="grid grid-cols-6 gap-4">

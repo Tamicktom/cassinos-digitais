@@ -26,10 +26,7 @@ function formatMean(value: number) {
   })
 }
 
-function handleInteractiveClick(
-  event: MouseEvent,
-  action: () => void
-) {
+function handleInteractiveClick(event: MouseEvent, action: () => void) {
   stopRevealNavigation(event)
   action()
 }
@@ -39,7 +36,7 @@ export function LawOfLargeNumbersDemo() {
 
   return (
     <Card
-      className="flex w-full h-full max-h-[55svh] flex-col gap-4 border-white/20 text-card-foreground bg-transparent"
+      className="flex h-full max-h-[55svh] w-full flex-col gap-4 border-white/20 bg-transparent text-card-foreground"
       onMouseDown={stopRevealNavigation}
     >
       <CardHeader className="pb-0">
@@ -59,7 +56,7 @@ export function LawOfLargeNumbersDemo() {
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-base tracking-wide text-white uppercase font-bold">
+            <span className="text-base font-bold tracking-wide text-white uppercase">
               Média amostral
             </span>
             <span className="text-2xl font-semibold text-chart-1">
@@ -67,7 +64,7 @@ export function LawOfLargeNumbersDemo() {
             </span>
           </div>
           <div className="flex flex-col items-end gap-1">
-            <span className="text-base tracking-wide text-white uppercase font-bold">
+            <span className="text-base font-bold tracking-wide text-white uppercase">
               Valor esperado
             </span>
             <MathFormula className="text-xl text-white" display={false}>
@@ -81,7 +78,7 @@ export function LawOfLargeNumbersDemo() {
           history={simulation.history}
         />
 
-        <p className="text-center text-xs text-white font-bold">
+        <p className="text-center text-xs font-bold text-white">
           Linha tracejada: E[X] = 0,5 · Linha sólida: média amostral
         </p>
 

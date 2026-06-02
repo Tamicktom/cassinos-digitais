@@ -40,9 +40,7 @@ const LOSING_SPIN_RESULT: SpinResult = {
 
 function advanceSpinDuration(isTurbo = false) {
   act(() => {
-    vi.advanceTimersByTime(
-      isTurbo ? SPIN_DURATION_TURBO_MS : SPIN_DURATION_MS
-    )
+    vi.advanceTimersByTime(isTurbo ? SPIN_DURATION_TURBO_MS : SPIN_DURATION_MS)
   })
 }
 

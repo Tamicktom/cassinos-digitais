@@ -42,6 +42,9 @@ export function getSampleMean(state: SimulationState): number {
     return 0
   }
 
-  const sum = state.outcomes.reduce<number>((total, outcome) => total + outcome, 0)
+  const sum = state.outcomes.reduce<number>(
+    (total, outcome) => total + outcome,
+    0
+  )
   return sum / state.outcomes.length
 }

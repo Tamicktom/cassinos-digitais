@@ -9,5 +9,11 @@ export const Route = createFileRoute("/slot-machine")({
 })
 
 function RouteComponent() {
-  return <SlotMachine />
+  return (
+    <div className="flex h-screen w-full items-center justify-center">
+      <div className="w-full max-w-7xl p-4">
+        <SlotMachine />
+      </div>
+    </div>
+  )
 }

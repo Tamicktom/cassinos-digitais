@@ -11,7 +11,11 @@ import {
 } from "@/lib/law-of-large-numbers"
 
 //* Types imports
-import type { CoinOutcome, SimulationState, TrialPoint } from "@/lib/law-of-large-numbers"
+import type {
+  CoinOutcome,
+  SimulationState,
+  TrialPoint,
+} from "@/lib/law-of-large-numbers"
 
 export function useLawOfLargeNumbers() {
   const [state, setState] = useState<SimulationState>(createInitialState)

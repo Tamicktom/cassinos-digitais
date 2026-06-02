@@ -69,7 +69,7 @@ export function HouseProfitChart(props: HouseProfitChartProps) {
           </div>
         </div>
 
-        <ChartContainer className="min-h-72 w-full" config={chartConfig}>
+        <ChartContainer className="h-full min-h-72 w-full" config={chartConfig}>
           <LineChart
             data={chartData}
             margin={{ top: 8, right: 8, bottom: 0, left: 0 }}

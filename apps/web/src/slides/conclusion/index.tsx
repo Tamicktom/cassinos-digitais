@@ -5,7 +5,9 @@ export function Conclusion() {
   return (
     <>
       <Slide>
-        <h2 className="font-grand-casino text-7xl font-bold text-white pb-8">Conclusão</h2>
+        <h2 className="pb-8 font-grand-casino text-7xl font-bold text-white">
+          Conclusão
+        </h2>
       </Slide>
     </>
   )

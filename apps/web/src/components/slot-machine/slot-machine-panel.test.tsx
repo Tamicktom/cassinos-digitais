@@ -15,7 +15,9 @@ import type { SlotSymbol } from "@/lib/slot-machine/types"
 
 type PanelProps = ComponentProps<typeof SlotMachinePanel>
 
-function createDefaultPanelProps(overrides: Partial<PanelProps> = {}): PanelProps {
+function createDefaultPanelProps(
+  overrides: Partial<PanelProps> = {}
+): PanelProps {
   return {
     balance: 1000,
     canSpin: true,
@@ -104,10 +106,9 @@ describe("SlotMachinePanel", () => {
   it("reflects turbo and auto toggle states", () => {
     renderPanel({ isTurbo: true, isAutoMode: true })
 
-    expect(screen.getByRole("button", { name: "Turbo ligado" })).toHaveAttribute(
-      "aria-pressed",
-      "true"
-    )
+    expect(
+      screen.getByRole("button", { name: "Turbo ligado" })
+    ).toHaveAttribute("aria-pressed", "true")
 
     const autoButton = screen.getByRole("button", {
       name: "Giro automático até o saldo acabar",
